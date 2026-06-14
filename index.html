@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Mini Minecraft</title>
+    <title>Meu Mini Minecraft - Movimento</title>
     <style>
         body { 
             margin: 0; 
@@ -13,96 +13,154 @@
         canvas { 
             display: block; 
         }
-        #info { 
-            position: absolute; 
-            top: 10px; 
-            width: 100%; 
-            text-align: center; 
-            color: #333; 
-            font-family: sans-serif; 
-            font-weight: bold;
+        /* Tela inicial de pause/início */
+        #menu-iniciar {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: sans-serif;
+            cursor: pointer;
+            z-index: 10;
+        }
+        /* Mira no centro da tela */
+        #mira {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
             pointer-events: none;
-            background: rgba(255, 255, 255, 0.5);
-            padding: 5px 0;
+            z-index: 5;
         }
     </style>
 </head>
 <body>
-    <div id="info">Clique para colocar blocos | Segure [Shift] + Clique para quebrar blocos</div>
+    <div id="menu-iniciar">
+        <h1>Clique para Jogar</h1>
+        <p><b>W, A, S, D</b> para andar | <b>ESPAÇO</b> para pular</p>
+        <p><b>Clique Normal:</b> Colocar bloco | <b>Shift + Clique:</b> Quebrar bloco</p>
+        <p><i>Pressione ESC para sair do jogo</i></p>
+    </div>
     
+    <div id="mira"></div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
 
     <script>
-        // 1. Configuração da Cena
+        // 1. Configuração da Cena e Câmera
         const cena = new THREE.Scene();
         cena.background = new THREE.Color(0x87CEEB);
-
-        // 2. Configuração da Câmera
-        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-        camera.position.set(10, 10, 10);
-        camera.lookAt(0, 0, 0);
-
-        // 3. Renderizador
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        
         const renderizador = new THREE.WebGLRenderer({ antialias: true });
         renderizador.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderizador.domElement);
 
-        // 4. Controles (para girar a câmera usando o mouse)
-        const controles = new THREE.OrbitControls(camera, renderizador.domElement);
-        controles.mouseButtons = {
-            LEFT: null, // Desativa o clique esquerdo na câmera para usarmos para colocar blocos
-            MIDDLE: THREE.MOUSE.DOLLY,
-            RIGHT: THREE.MOUSE.ROTATE
-        };
-
-        // 5. Iluminação
-        const luzAmbiente = new THREE.AmbientLight(0x606060);
+        // 2. Iluminação
+        const luzAmbiente = new THREE.AmbientLight(0xcccccc);
         cena.add(luzAmbiente);
-        const luzDirecional = new THREE.DirectionalLight(0xffffff);
-        luzDirecional.position.set(1, 0.75, 0.5).normalize();
+        const luzDirecional = new THREE.DirectionalLight(0xffffff, 0.6);
+        luzDirecional.position.set(1, 1, 0.5).normalize();
         cena.add(luzDirecional);
 
-        // 6. Chão (Grid)
+        // 3. Controles em Primeira Pessoa (PointerLock)
+        const controles = new THREE.PointerLockControls(camera, document.body);
+        const menuIniciar = document.getElementById('menu-iniciar');
+
+        // Travar o mouse ao clicar no menu
+        menuIniciar.addEventListener('click', () => {
+            controles.lock();
+        });
+
+        controles.addEventListener('lock', () => {
+            menuIniciar.style.display = 'none';
+        });
+
+        controles.addEventListener('unlock', () => {
+            menuIniciar.style.display = 'flex';
+        });
+        cena.add(controles.getObject());
+
+        // 4. Variáveis de Movimento e Física
+        let moverFrente = false;
+        let moverTras = false;
+        let moverEsquerda = false;
+        let moverDireita = false;
+        let podePular = false;
+
+        const velocidade = new THREE.Vector3();
+        const direcao = new THREE.Vector3();
+        let tempoAnterior = performance.now();
+
+        // Detectar teclas pressionadas
+        document.addEventListener('keydown', (event) => {
+            switch (event.code) {
+                case 'KeyW': moverFrente = true; break;
+                case 'KeyA': moverEsquerda = true; break;
+                case 'KeyS': moverTras = true; break;
+                case 'KeyD': moverDireita = true; break;
+                case 'Space': 
+                    if (podePular) velocidade.y += 10; // Força do pulo
+                    podePular = false;
+                    break;
+            }
+        });
+
+        document.addEventListener('keyup', (event) => {
+            switch (event.code) {
+                case 'KeyW': moverFrente = false; break;
+                case 'KeyA': moverEsquerda = false; break;
+                case 'KeyS': moverTras = false; break;
+                case 'KeyD': moverDireita = false; break;
+            }
+        });
+
+        // 5. Chão e Sistema de Blocos
         const objetos = [];
-        const geometriaChao = new THREE.PlaneGeometry(50, 50);
+        const geometriaChao = new THREE.PlaneGeometry(100, 100);
         geometriaChao.rotateX(-Math.PI / 2);
-        const materialChao = new THREE.MeshBasicMaterial({ visible: false });
+        const materialChao = new THREE.MeshLambertMaterial({ color: 0x556B2F }); // Cor de grama escura
         const chao = new THREE.Mesh(geometriaChao, materialChao);
         cena.add(chao);
         objetos.push(chao);
 
-        const gridHelper = new THREE.GridHelper(50, 50);
+        const gridHelper = new THREE.GridHelper(100, 100);
         cena.add(gridHelper);
 
-        // 7. Configuração dos Blocos
         const geometriaBloco = new THREE.BoxGeometry(1, 1, 1);
-        const materialBloco = new THREE.MeshLambertMaterial({ color: 0x8b4513 }); // Cor de terra
+        const materialBloco = new THREE.MeshLambertMaterial({ color: 0x8b4513 }); 
 
-        // 8. Sistema de Clique (Raycaster)
+        // 6. Sistema de Construção (Mira no centro)
         const raycaster = new THREE.Raycaster();
-        const mouse = new THREE.Vector2();
+        const centroTela = new THREE.Vector2(0, 0); // O PointerLock sempre atira no meio da tela
 
-        window.addEventListener('mousedown', (event) => {
-            if (event.button !== 0) return; // Apenas clique esquerdo
+        document.addEventListener('mousedown', (event) => {
+            if (!controles.isLocked || event.button !== 0) return;
 
-            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-            raycaster.setFromCamera(mouse, camera);
+            raycaster.setFromCamera(centroTela, camera);
             const intersecoes = raycaster.intersectObjects(objetos);
 
             if (intersecoes.length > 0) {
                 const intersecao = intersecoes[0];
 
-                // Deletar Bloco (Shift + Clique)
+                // Quebrar bloco (Shift)
                 if (event.shiftKey) {
                     if (intersecao.object !== chao) {
                         cena.remove(intersecao.object);
                         objetos.splice(objetos.indexOf(intersecao.object), 1);
                     }
                 } 
-                // Colocar Bloco (Clique Normal)
+                // Colocar bloco
                 else {
                     const bloco = new THREE.Mesh(geometriaBloco, materialBloco);
                     bloco.position.copy(intersecao.point).add(intersecao.face.normal);
@@ -113,18 +171,54 @@
             }
         });
 
-        // 9. Atualização de Tela (Redimensionar janela)
+        // 7. Loop de Animação e Física
+        function animar() {
+            requestAnimationFrame(animar);
+
+            const tempoAtual = performance.now();
+            const delta = (tempoAtual - tempoAnterior) / 1000; // Tempo entre os quadros
+
+            if (controles.isLocked === true) {
+                // Atrito no chão (desaceleração)
+                velocidade.x -= velocidade.x * 10.0 * delta;
+                velocidade.z -= velocidade.z * 10.0 * delta;
+                
+                // Gravidade
+                velocidade.y -= 9.8 * 4.0 * delta; 
+
+                // Calcular direção de movimento
+                direcao.z = Number(moverFrente) - Number(moverTras);
+                direcao.x = Number(moverDireita) - Number(moverEsquerda);
+                direcao.normalize(); // Garante movimento consistente em todas as direções
+
+                // Aceleração
+                if (moverFrente || moverTras) velocidade.z -= direcao.z * 40.0 * delta;
+                if (moverEsquerda || moverDireita) velocidade.x -= direcao.x * 40.0 * delta;
+
+                // Aplicar movimento na câmera
+                controles.moveRight(-velocidade.x * delta);
+                controles.moveForward(-velocidade.z * delta);
+                controles.getObject().position.y += (velocidade.y * delta);
+
+                // Colisão com o chão (altura mínima)
+                if (controles.getObject().position.y < 2) { // 2 é a altura dos "olhos"
+                    velocidade.y = 0;
+                    controles.getObject().position.y = 2;
+                    podePular = true;
+                }
+            }
+
+            tempoAnterior = tempoAtual;
+            renderizador.render(cena, camera);
+        }
+
+        // Redimensionar tela
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderizador.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // 10. Loop de Animação
-        function animar() {
-            requestAnimationFrame(animar);
-            renderizador.render(cena, camera);
-        }
         animar();
     </script>
 </body>
