@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Mini Minecraft - Movimento</title>
+    <title>Meu Mini Minecraft - Texturas</title>
     <style>
         body { 
             margin: 0; 
@@ -13,7 +13,6 @@
         canvas { 
             display: block; 
         }
-        /* Tela inicial de pause/início */
         #menu-iniciar {
             position: absolute;
             width: 100%;
@@ -28,7 +27,6 @@
             cursor: pointer;
             z-index: 10;
         }
-        /* Mira no centro da tela */
         #mira {
             position: absolute;
             top: 50%;
@@ -47,8 +45,8 @@
     <div id="menu-iniciar">
         <h1>Clique para Jogar</h1>
         <p><b>W, A, S, D</b> para andar | <b>ESPAÇO</b> para pular</p>
-        <p><b>Clique Normal:</b> Colocar bloco | <b>Shift + Clique:</b> Quebrar bloco</p>
-        <p><i>Pressione ESC para sair do jogo</i></p>
+        <p><b>Clique:</b> Colocar bloco | <b>Shift + Clique:</b> Quebrar bloco</p>
+        <p><i>Aviso: As texturas só vão carregar se você jogar pelo link do GitHub Pages!</i></p>
     </div>
     
     <div id="mira"></div>
@@ -57,52 +55,36 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
 
     <script>
-        // 1. Configuração da Cena e Câmera
         const cena = new THREE.Scene();
         cena.background = new THREE.Color(0x87CEEB);
+        // Adicionando um leve "nevoeiro" para disfarçar o fim do mapa
+        cena.fog = new THREE.Fog(0x87CEEB, 10, 50);
+
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         
         const renderizador = new THREE.WebGLRenderer({ antialias: true });
         renderizador.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderizador.domElement);
 
-        // 2. Iluminação
-        const luzAmbiente = new THREE.AmbientLight(0xcccccc);
+        const luzAmbiente = new THREE.AmbientLight(0xffffff, 0.6);
         cena.add(luzAmbiente);
-        const luzDirecional = new THREE.DirectionalLight(0xffffff, 0.6);
+        const luzDirecional = new THREE.DirectionalLight(0xffffff, 0.5);
         luzDirecional.position.set(1, 1, 0.5).normalize();
         cena.add(luzDirecional);
 
-        // 3. Controles em Primeira Pessoa (PointerLock)
         const controles = new THREE.PointerLockControls(camera, document.body);
         const menuIniciar = document.getElementById('menu-iniciar');
 
-        // Travar o mouse ao clicar no menu
-        menuIniciar.addEventListener('click', () => {
-            controles.lock();
-        });
-
-        controles.addEventListener('lock', () => {
-            menuIniciar.style.display = 'none';
-        });
-
-        controles.addEventListener('unlock', () => {
-            menuIniciar.style.display = 'flex';
-        });
+        menuIniciar.addEventListener('click', () => controles.lock());
+        controles.addEventListener('lock', () => menuIniciar.style.display = 'none');
+        controles.addEventListener('unlock', () => menuIniciar.style.display = 'flex');
         cena.add(controles.getObject());
 
-        // 4. Variáveis de Movimento e Física
-        let moverFrente = false;
-        let moverTras = false;
-        let moverEsquerda = false;
-        let moverDireita = false;
-        let podePular = false;
-
+        let moverFrente = false, moverTras = false, moverEsquerda = false, moverDireita = false, podePular = false;
         const velocidade = new THREE.Vector3();
         const direcao = new THREE.Vector3();
         let tempoAnterior = performance.now();
 
-        // Detectar teclas pressionadas
         document.addEventListener('keydown', (event) => {
             switch (event.code) {
                 case 'KeyW': moverFrente = true; break;
@@ -110,7 +92,7 @@
                 case 'KeyS': moverTras = true; break;
                 case 'KeyD': moverDireita = true; break;
                 case 'Space': 
-                    if (podePular) velocidade.y += 10; // Força do pulo
+                    if (podePular) velocidade.y += 10;
                     podePular = false;
                     break;
             }
@@ -125,24 +107,56 @@
             }
         });
 
-        // 5. Chão e Sistema de Blocos
+        // ==========================================
+        // SISTEMA DE TEXTURAS AQUI
+        // ==========================================
+        const carregadorTextura = new THREE.TextureLoader();
+        
+        // Carregando as imagens (Elas precisam estar no mesmo repositório do GitHub)
+        const texturaTerra = carregadorTextura.load('terra.jpg');
+        const texturaGrama = carregadorTextura.load('grama.jpg');
+
+        // Configurando para manter o estilo "pixelado" do Minecraft
+        texturaTerra.magFilter = THREE.NearestFilter;
+        texturaGrama.magFilter = THREE.NearestFilter;
+
+        // Criando os materiais com as texturas
+        const materialTerra = new THREE.MeshLambertMaterial({ map: texturaTerra });
+        const materialGrama = new THREE.MeshLambertMaterial({ map: texturaGrama });
+
+        // Um bloco tem 6 lados. Vamos configurar o topo como grama e os lados/fundo como terra.
+        // Ordem: Direita, Esquerda, Topo, Baixo, Frente, Trás
+        const materiaisBloco = [
+            materialTerra, 
+            materialTerra, 
+            materialGrama, 
+            materialTerra, 
+            materialTerra, 
+            materialTerra  
+        ];
+
+        const geometriaBloco = new THREE.BoxGeometry(1, 1, 1);
+
+        // Chão principal (Usando a textura de grama repetida)
         const objetos = [];
         const geometriaChao = new THREE.PlaneGeometry(100, 100);
         geometriaChao.rotateX(-Math.PI / 2);
-        const materialChao = new THREE.MeshLambertMaterial({ color: 0x556B2F }); // Cor de grama escura
+        
+        // Fazendo a textura do chão se repetir
+        const texturaChao = carregadorTextura.load('grama.jpg');
+        texturaChao.wrapS = THREE.RepeatWrapping;
+        texturaChao.wrapT = THREE.RepeatWrapping;
+        texturaChao.repeat.set(100, 100);
+        texturaChao.magFilter = THREE.NearestFilter;
+        
+        const materialChao = new THREE.MeshLambertMaterial({ map: texturaChao });
         const chao = new THREE.Mesh(geometriaChao, materialChao);
         cena.add(chao);
         objetos.push(chao);
 
-        const gridHelper = new THREE.GridHelper(100, 100);
-        cena.add(gridHelper);
-
-        const geometriaBloco = new THREE.BoxGeometry(1, 1, 1);
-        const materialBloco = new THREE.MeshLambertMaterial({ color: 0x8b4513 }); 
-
-        // 6. Sistema de Construção (Mira no centro)
+        // Sistema de Construção
         const raycaster = new THREE.Raycaster();
-        const centroTela = new THREE.Vector2(0, 0); // O PointerLock sempre atira no meio da tela
+        const centroTela = new THREE.Vector2(0, 0);
 
         document.addEventListener('mousedown', (event) => {
             if (!controles.isLocked || event.button !== 0) return;
@@ -153,16 +167,14 @@
             if (intersecoes.length > 0) {
                 const intersecao = intersecoes[0];
 
-                // Quebrar bloco (Shift)
                 if (event.shiftKey) {
                     if (intersecao.object !== chao) {
                         cena.remove(intersecao.object);
                         objetos.splice(objetos.indexOf(intersecao.object), 1);
                     }
-                } 
-                // Colocar bloco
-                else {
-                    const bloco = new THREE.Mesh(geometriaBloco, materialBloco);
+                } else {
+                    // Aqui usamos o Array de materiais (materiaisBloco)
+                    const bloco = new THREE.Mesh(geometriaBloco, materiaisBloco);
                     bloco.position.copy(intersecao.point).add(intersecao.face.normal);
                     bloco.position.divideScalar(1).floor().multiplyScalar(1).addScalar(0.5);
                     cena.add(bloco);
@@ -171,37 +183,30 @@
             }
         });
 
-        // 7. Loop de Animação e Física
+        // Física e Animação
         function animar() {
             requestAnimationFrame(animar);
 
             const tempoAtual = performance.now();
-            const delta = (tempoAtual - tempoAnterior) / 1000; // Tempo entre os quadros
+            const delta = (tempoAtual - tempoAnterior) / 1000;
 
             if (controles.isLocked === true) {
-                // Atrito no chão (desaceleração)
                 velocidade.x -= velocidade.x * 10.0 * delta;
                 velocidade.z -= velocidade.z * 10.0 * delta;
-                
-                // Gravidade
                 velocidade.y -= 9.8 * 4.0 * delta; 
 
-                // Calcular direção de movimento
                 direcao.z = Number(moverFrente) - Number(moverTras);
                 direcao.x = Number(moverDireita) - Number(moverEsquerda);
-                direcao.normalize(); // Garante movimento consistente em todas as direções
+                direcao.normalize(); 
 
-                // Aceleração
                 if (moverFrente || moverTras) velocidade.z -= direcao.z * 40.0 * delta;
                 if (moverEsquerda || moverDireita) velocidade.x -= direcao.x * 40.0 * delta;
 
-                // Aplicar movimento na câmera
                 controles.moveRight(-velocidade.x * delta);
                 controles.moveForward(-velocidade.z * delta);
                 controles.getObject().position.y += (velocidade.y * delta);
 
-                // Colisão com o chão (altura mínima)
-                if (controles.getObject().position.y < 2) { // 2 é a altura dos "olhos"
+                if (controles.getObject().position.y < 2) { 
                     velocidade.y = 0;
                     controles.getObject().position.y = 2;
                     podePular = true;
@@ -212,7 +217,6 @@
             renderizador.render(cena, camera);
         }
 
-        // Redimensionar tela
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
