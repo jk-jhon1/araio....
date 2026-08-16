@@ -3,227 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Mini Minecraft - Texturas</title>
-    <style>
-        body { 
-            margin: 0; 
-            overflow: hidden; 
-            background-color: #87CEEB; /* Cor do céu */
-        }
-        canvas { 
-            display: block; 
-        }
-        #menu-iniciar {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-family: sans-serif;
-            cursor: pointer;
-            z-index: 10;
-        }
-        #mira {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 10px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 5;
-        }
-    </style>
+    <title>RPG em Gaia</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="menu-iniciar">
-        <h1>Clique para Jogar</h1>
-        <p><b>W, A, S, D</b> para andar | <b>ESPAÇO</b> para pular</p>
-        <p><b>Clique:</b> Colocar bloco | <b>Shift + Clique:</b> Quebrar bloco</p>
-        <p><i>Aviso: As texturas só vão carregar se você jogar pelo link do GitHub Pages!</i></p>
+    <!-- Interface do Jogo -->
+    <div id="ui-container">
+        <div id="player-stats">
+            <h2>Herói de Gaia</h2>
+            <p>HP: <span id="hp">100</span>/100</p>
+            <p>Localização: <span id="location">Desconhecida</span></p>
+        </div>
+        <div id="action-log">
+            <p>Bem-vindo ao mundo de Gaia!</p>
+        </div>
     </div>
-    
-    <div id="mira"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
+    <!-- Container do Mapa (Câmera) -->
+    <div id="game-window">
+        <div id="map-container">
+            <!-- COLE O SEU CÓDIGO <svg> COMPLETO AQUI DENTRO -->
+            <!-- Exemplo: <svg id="map" width="1024" height="625"... -->
+            
+            <!-- Personagem do Jogador -->
+            <div id="player"></div>
+        </div>
+    </div>
 
-    <script>
-        const cena = new THREE.Scene();
-        cena.background = new THREE.Color(0x87CEEB);
-        // Adicionando um leve "nevoeiro" para disfarçar o fim do mapa
-        cena.fog = new THREE.Fog(0x87CEEB, 10, 50);
-
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        
-        const renderizador = new THREE.WebGLRenderer({ antialias: true });
-        renderizador.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderizador.domElement);
-
-        const luzAmbiente = new THREE.AmbientLight(0xffffff, 0.6);
-        cena.add(luzAmbiente);
-        const luzDirecional = new THREE.DirectionalLight(0xffffff, 0.5);
-        luzDirecional.position.set(1, 1, 0.5).normalize();
-        cena.add(luzDirecional);
-
-        const controles = new THREE.PointerLockControls(camera, document.body);
-        const menuIniciar = document.getElementById('menu-iniciar');
-
-        menuIniciar.addEventListener('click', () => controles.lock());
-        controles.addEventListener('lock', () => menuIniciar.style.display = 'none');
-        controles.addEventListener('unlock', () => menuIniciar.style.display = 'flex');
-        cena.add(controles.getObject());
-
-        let moverFrente = false, moverTras = false, moverEsquerda = false, moverDireita = false, podePular = false;
-        const velocidade = new THREE.Vector3();
-        const direcao = new THREE.Vector3();
-        let tempoAnterior = performance.now();
-
-        document.addEventListener('keydown', (event) => {
-            switch (event.code) {
-                case 'KeyW': moverFrente = true; break;
-                case 'KeyA': moverEsquerda = true; break;
-                case 'KeyS': moverTras = true; break;
-                case 'KeyD': moverDireita = true; break;
-                case 'Space': 
-                    if (podePular) velocidade.y += 10;
-                    podePular = false;
-                    break;
-            }
-        });
-
-        document.addEventListener('keyup', (event) => {
-            switch (event.code) {
-                case 'KeyW': moverFrente = false; break;
-                case 'KeyA': moverEsquerda = false; break;
-                case 'KeyS': moverTras = false; break;
-                case 'KeyD': moverDireita = false; break;
-            }
-        });
-
-        // ==========================================
-        // SISTEMA DE TEXTURAS AQUI
-        // ==========================================
-        const carregadorTextura = new THREE.TextureLoader();
-        
-        // Carregando as imagens (Elas precisam estar no mesmo repositório do GitHub)
-        const texturaTerra = carregadorTextura.load('terra.jpg');
-        const texturaGrama = carregadorTextura.load('grama.jpg');
-
-        // Configurando para manter o estilo "pixelado" do Minecraft
-        texturaTerra.magFilter = THREE.NearestFilter;
-        texturaGrama.magFilter = THREE.NearestFilter;
-
-        // Criando os materiais com as texturas
-        const materialTerra = new THREE.MeshLambertMaterial({ map: texturaTerra });
-        const materialGrama = new THREE.MeshLambertMaterial({ map: texturaGrama });
-
-        // Um bloco tem 6 lados. Vamos configurar o topo como grama e os lados/fundo como terra.
-        // Ordem: Direita, Esquerda, Topo, Baixo, Frente, Trás
-        const materiaisBloco = [
-            materialTerra, 
-            materialTerra, 
-            materialGrama, 
-            materialTerra, 
-            materialTerra, 
-            materialTerra  
-        ];
-
-        const geometriaBloco = new THREE.BoxGeometry(1, 1, 1);
-
-        // Chão principal (Usando a textura de grama repetida)
-        const objetos = [];
-        const geometriaChao = new THREE.PlaneGeometry(100, 100);
-        geometriaChao.rotateX(-Math.PI / 2);
-        
-        // Fazendo a textura do chão se repetir
-        const texturaChao = carregadorTextura.load('grama.jpg');
-        texturaChao.wrapS = THREE.RepeatWrapping;
-        texturaChao.wrapT = THREE.RepeatWrapping;
-        texturaChao.repeat.set(100, 100);
-        texturaChao.magFilter = THREE.NearestFilter;
-        
-        const materialChao = new THREE.MeshLambertMaterial({ map: texturaChao });
-        const chao = new THREE.Mesh(geometriaChao, materialChao);
-        cena.add(chao);
-        objetos.push(chao);
-
-        // Sistema de Construção
-        const raycaster = new THREE.Raycaster();
-        const centroTela = new THREE.Vector2(0, 0);
-
-        document.addEventListener('mousedown', (event) => {
-            if (!controles.isLocked || event.button !== 0) return;
-
-            raycaster.setFromCamera(centroTela, camera);
-            const intersecoes = raycaster.intersectObjects(objetos);
-
-            if (intersecoes.length > 0) {
-                const intersecao = intersecoes[0];
-
-                if (event.shiftKey) {
-                    if (intersecao.object !== chao) {
-                        cena.remove(intersecao.object);
-                        objetos.splice(objetos.indexOf(intersecao.object), 1);
-                    }
-                } else {
-                    // Aqui usamos o Array de materiais (materiaisBloco)
-                    const bloco = new THREE.Mesh(geometriaBloco, materiaisBloco);
-                    bloco.position.copy(intersecao.point).add(intersecao.face.normal);
-                    bloco.position.divideScalar(1).floor().multiplyScalar(1).addScalar(0.5);
-                    cena.add(bloco);
-                    objetos.push(bloco);
-                }
-            }
-        });
-
-        // Física e Animação
-        function animar() {
-            requestAnimationFrame(animar);
-
-            const tempoAtual = performance.now();
-            const delta = (tempoAtual - tempoAnterior) / 1000;
-
-            if (controles.isLocked === true) {
-                velocidade.x -= velocidade.x * 10.0 * delta;
-                velocidade.z -= velocidade.z * 10.0 * delta;
-                velocidade.y -= 9.8 * 4.0 * delta; 
-
-                direcao.z = Number(moverFrente) - Number(moverTras);
-                direcao.x = Number(moverDireita) - Number(moverEsquerda);
-                direcao.normalize(); 
-
-                if (moverFrente || moverTras) velocidade.z -= direcao.z * 40.0 * delta;
-                if (moverEsquerda || moverDireita) velocidade.x -= direcao.x * 40.0 * delta;
-
-                controles.moveRight(-velocidade.x * delta);
-                controles.moveForward(-velocidade.z * delta);
-                controles.getObject().position.y += (velocidade.y * delta);
-
-                if (controles.getObject().position.y < 2) { 
-                    velocidade.y = 0;
-                    controles.getObject().position.y = 2;
-                    podePular = true;
-                }
-            }
-
-            tempoAnterior = tempoAtual;
-            renderizador.render(cena, camera);
-        }
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderizador.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        animar();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
