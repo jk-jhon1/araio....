@@ -1,127 +1,318 @@
-# Chicotes do Destino
+# CHICOTES DO DESTINO — Sandbox 2D Platformer
 
-O jogo de 200 espadas recriado com uma única troca estrutural: a arma.
-Onde havia 200 espadas, há **200 chicotes**. O resto — mundo, mineração,
-construção, criação (crafting), chefes, conquistas e interface — continua.
+Jogo 2D de exploração, mineração e combate no estilo *Terraria*, com **200 chicotes únicos**.
+É o prompt **"Chicotes do Destino"** executado sobre a base completa do
+[**101spas — Espadas do Destino**](https://github.com/jk-jhon1/101spas): o mesmo jogo, número por número
+(200 armas, 94 chefes, 433 receitas, 628 itens, 429 conquistas, mundo 1400×480), com **só a arma trocada** —
+cada uma das 200 espadas virou um chicote de corda viva com as mecânicas do prompt: alcance 2–3× maior,
+dano que cresce até a ponta com **estalo**, vários alvos por golpe, **giro de 360°**, **gancho** que fisga
+blocos e pesca drops, e **par de chicotes** a partir do Tier 5. O registro completo da conversão está em
+[`TRANSFORMACAO.md`](TRANSFORMACAO.md).
 
-> *"Se funciona com espada, funciona com chicote — mas o chicote alcança mais
-> longe, acerta mais de um inimigo e não corta: ele estala."*
+> **Jogar online:** **https://jk-jhon1.github.io/araio..../** — direto no navegador, sem instalar nada.
+>
+> **Offline:** abra o arquivo **`index.html`** num navegador moderno (Chrome, Edge, Firefox, Safari). É um único
+> arquivo autocontido — sem instalação e sem internet. A única coisa externa é a música de fundo (`docs/Alert at Rest.mp3`):
+> se ela não estiver ao lado do `index.html`, o jogo abre e joga normalmente, só sem música. Use teclado + mouse, um controle (gamepad) com mira analógica, ou **toque** (celular/tablet: direcional virtual e botão de ação com mira por arrasto).
 
-Especificação completa (prompt de 13 páginas que gerou este jogo):
-[`docs/chicotes_do_destino_prompt.pdf`](docs/chicotes_do_destino_prompt.pdf) ·
-texto extraído em [`docs/especificacao-extraida.txt`](docs/especificacao-extraida.txt)
-· resumo de implementação em [`docs/ESPECIFICACAO.md`](docs/ESPECIFICACAO.md).
+## Especificação do jogo (PDF)
 
-## Jogar
+O prompt completo que define este jogo: **200 chicotes em 10 tiers**. São **11 partes em 13 páginas** — identidade, as **7 mecânicas obrigatórias** do chicote, stack, os números fechados (200 chicotes,
+94 chefes, 433 receitas, 628 itens e 429 conquistas), os 10 tiers, a curva de dano, a nomenclatura, os chefes,
+as conquistas com os 12 segredos mascarados, a interface e os critérios de aceite com o prompt curto para colar.
 
-Sem instalar nada — o jogo inteiro é um **único `index.html`**, sem
-dependências, e roda offline:
+[`docs/chicotes_do_destino_prompt.pdf`](docs/chicotes_do_destino_prompt.pdf) · gerado por `node dev/pdf/prompt.js`
 
-1. Abra o arquivo **`index.html`** no navegador (clique duplo funciona), **ou**
-2. sirva com o servidor local: `node serve.js` e abra http://localhost:8080,
-   **ou**
-3. publique no GitHub Pages servindo a raiz deste repositório (`index.html`
-   já está na raiz; basta ativar o Pages apontando para a branch `main`).
+> **Baixar direto:** **https://jk-jhon1.github.io/araio..../docs/chicotes_do_destino_prompt.pdf**
 
-## Capturas do jogo
+## Catálogo de chicotes
 
-| A vila inicial | Rei Slime (chefe nº 1) |
+**200 chicotes** em 10 tiers — 20 por tier —, cada uma com nome, atributos, mecânica e receita próprios.
+Os tiers 1 a 6 vão do básico ao end-game; os tiers 7 a 10 são o pós-jogo, com a corda trançada no estilo de cada tier (couro, cravos, corrente, osso serrilhado, pares, runas, relíquias, luz sólida e conceitos).
+
+Catálogo completo (com receitas): [`docs/catalogo_200_chicotes.md`](docs/catalogo_200_chicotes.md) e `.csv`.
+
+## Equipamento: 50 minérios, 50 armaduras e 50 acessórios
+
+Dez **famílias** — Braseiro, Geada, Corisco, Maré, Raiz, Véu, Alvorada, Relojoaria, Vazio e Origem —, cada uma com
+**5 minérios**, **5 armaduras** e **5 acessórios**. A armadura + acessórios da mesma família ativam um **bônus de conjunto**
+(2 peças: bônus pequeno; 4 peças: bônus completo). Você usa 1 armadura e **4 acessórios**.
+
+- **50 minérios** (e 50 barras): minerados por profundidade, do subterrâneo raso ao Inferno, com dureza de 2 a 14.
+- **5 picaretas novas** (poder 10 a 14), forjadas na Forja Celeste, destravam os minérios mais duros.
+- **50 armaduras** com passiva própria (não é só "+defesa"): incendeia, congela, devolve dano, renasce, executa…
+- **50 acessórios**, cada um com uma mecânica única: **45 vêm de chefes** (um exclusivo por chefe, inclusive os 4 clássicos)
+  e **5 são forjados** com os minérios novos.
+- **Aparência própria**: os 205 desenhos (50 minérios, 50 barras, 50 armaduras, 50 acessórios e 5 picaretas) são gerados
+  por semente em `src/06c_gearart.js` — muda o corte, o comprimento, os enfeites e a paleta de cada peça, então nenhuma
+  repete a silhueta de outra. O teste `dev/test_gear_art.js` compara o alfa de todos os ícones e falha se dois coincidirem
+  (`npm run test:art`, ou `node dev/test_gear_art.js --sheet pasta/` para gravar as folhas de contato).
+
+Catálogo do equipamento: [`docs/catalogo_equipamentos.md`](docs/catalogo_equipamentos.md).
+
+Conquistas: [`docs/conquistas.md`](docs/conquistas.md) (gerado por `node dev/docs_ach.js`).
+
+## Conquistas: 429 no total
+
+O jogo tem **429 conquistas** em 10 categorias — chicotes, chefes, progressão, combate, mineração e construção, equipamento,
+exploração, economia e NPCs, mundos e segredos —, com quatro raridades (Comum, Raro, Épico e Lendário).
+Lista completa, com o que fazer em cada uma: [`docs/conquistas.md`](docs/conquistas.md).
+
+- **Duas entradas, como pedido:** botão **Conquistas** no menu principal (mostra `x / 429` e a porcentagem) e botão **Conquistas**
+  na pausa (`Esc`). Os dois abrem o mesmo painel.
+- **Painel:** abas por categoria, barra de progresso geral, contador `x de total` e ordem *em progresso → não iniciadas → concluídas*;
+  cada linha mostra o ícone, a raridade, a descrição e o seu progresso (`37/200`).
+- **Os 200 chicotes e os 94 chefes** geram uma conquista cada, direto das tabelas do jogo (`SWORDS` e `BXLIST`) — se um chicote ou um
+  chefe muda de nome, a conquista muda junto.
+- **Aviso na hora:** a cada 0,6 s o jogo confere o progresso e mostra um aviso dourado com som quando algo é desbloqueado.
+- **Nunca perde progresso:** as conquistas ficam no perfil do navegador **e** dentro do mundo salvo. Exportar leva as conquistas no
+  arquivo e importar faz a união (nunca regride). Importar um arquivo adulterado não injeta conquistas inventadas: `achClean()` valida
+  ids, itens, biomas, camadas, NPCs e números, com teto nos contadores.
+- **Modo Criativo conta normalmente** (é um sandbox) — o Arsenal acelera a coleção.
+
+## Itens de invocar NPC (só no Modo Criativo)
+
+Quatro itens novos chamam um morador para o seu lado **sem precisar de casa válida**: **Sino do Guia**, **Baú do Mercador**,
+**Maleta da Enfermeira** e **Martelo do Armeiro** (Arsenal → *Itens → Consumíveis e Invocações*, no Criativo).
+No modo Aventura eles aparecem no inventário mas **não fazem nada e não são consumidos** — a mensagem explica que são exclusivos do
+Criativo. O NPC invocado fica por perto de onde foi chamado, é salvo com o mundo e também vai no arquivo exportado.
+
+---
+
+## Capturas
+
+*(Capturas do jogo-base 101spas — o mundo, os chefes e a interface são idênticos; o que muda é a arma na mão do personagem.)*
+
+| | |
 |---|---|
-| ![Vila com os três NPCs](docs/capturas/vila.png) | ![Luta contra o Rei Slime](docs/capturas/chefe-rei-slime.png) |
-| **Cavernas e mineração** | **Giro de 360° com chicote Tier 10** |
-| ![Caverna escura com minérios](docs/capturas/caverna.png) | ![Giro de 360 graus](docs/capturas/giro-360.png) |
+| ![Menu](docs/img/01_menu.png) | ![Combate](docs/img/02_combate.png) |
+| ![Biomas e camadas](docs/img/03_biomas_e_camadas.png) | ![Arco de ataque](docs/img/04_arco_de_ataque.png) |
+| ![Efeitos Tier 4](docs/img/05_efeitos_tier4.png) | ![Efeitos Tier 5 e 6](docs/img/06_efeitos_tier5_6.png) |
+| ![Interface](docs/img/07_interface.png) | ![Tiles](docs/img/08_tiles.png) |
+| ![Controle (gamepad): menu, mira analógica, cursor virtual](docs/img/09_controle.png) | ![Meus Mundos: vários mundos salvos, cada um com os biomas numa ordem diferente; este aparelho, proteção e Exportar / Importar mapa](docs/img/10_meus_mundos.png) |
 
-## Os números fechados
+![Celular (toque): direcional, botão de ação com mira por arrasto, pulo, interagir, inventário/arsenal/mapa/cura/zoom/pausa](docs/img/11_toque.png)
 
-| Conjunto | Total | Composição |
-|---|---|---|
-| Chicotes | **200** | 10 tiers × 20 — T1–T6 forjáveis, T7–T8 com minério de chefe, T9–T10 só caem de chefe |
-| Chefes | **94** | 4 clássicos + 90 novos em 6 atos (8+14+16+12+20+20), cada um com mecânica inédita |
-| Receitas | **433** | 160 chicotes + 50 armaduras + 50 barras + 5 picaretas + 5 acessórios + 30 poções + 40 blocos + 93 selos |
-| Itens | **628** | catálogo completo inventariável |
-| Conquistas | **429** | 200 de arma + 94 de chefe + 12 segredos `???` + 123 nas outras 7 categorias |
-| Minérios / barras | 50 / 50 | 10 famílias × 5; os de pós-jogo só caem de chefe |
-| Armaduras / acessórios | 50 / 50 | 45 acessórios exclusivos de chefe + 5 forjados |
-| Picaretas | 5 | poder 10 a 14, destravam os minérios mais duros |
+![Os 4 chefes no zoom do jogo: Rei Slime, Olho Colossal, Guardião do Abismo (fase 2) e Colosso Estelar (fase 3)](docs/img/12_chefes.png)
 
-A **Apoteose**, o chicote nº 200, só existe quando o contador de chefes chega
-a **94/94**.
+![Os 90 chefes novos, em ordem de ato (Ato I a VI)](docs/img/13_chefes_novos.png)
 
-## As 7 regras de ouro do chicote
-
-1. **Alcance 2–3×** — corda de 3,3 blocos (T1) a 4,2 (T10), hitbox em cápsula seguindo a curva;
-2. **Dano até a ponta** — `dano(t) = Base × (0,60 + 1,00 × t)`; os últimos 10% são o **estalo**: ×1,60 de novo (**2,56×** no total), sem sorteio;
-3. **Vários em linha** — 3 (T1) a 8 (T10) alvos por golpe, −15% por alvo extra;
-4. **Giro de 360°** — segure o golpe por 0,45s e solte: 1,2s de dano radial com empurrão;
-5. **Gancho** — a ponta agarra blocos (um tipo novo por tier), puxa o jogador e recolhe drops;
-6. **Par a partir do T5** — o segundo chicote golpeia alternado com 70% do dano;
-7. **Corda viva** — cadeia de 12 a 24 segmentos que ondula e encosta no cenário, com som, faísca e tremor curto de tela no estalo.
-
-O chicote **não** minera (a picareta continua sendo a ferramenta), não
-bloqueia projéteis e não substitui a construção.
+---
 
 ## Controles
 
-| Ação | Teclado/mouse | Controle | Toque |
-|---|---|---|---|
-| Andar / pular | `A`/`D` ou setas · `Espaço` | direcional esquerdo · A | ◀ ▶ ▲ |
-| Golpe | clique (soltar rápido) | X / RT | 💥 |
-| Giro 360° | segurar o clique 0,45s e soltar | segurar X e soltar | segurar 💥 e soltar |
-| Gancho | botão direito ou `F` (pular solta) | B | 🪝 |
-| Mirar | mouse | direcional direito (mira analógica) | arrastar no canvas |
-| Minerar / construir | selecione picareta/bloco e segure o clique | X | 💥 com arrasto |
-| Falar com NPC | `E` | Y | E |
-| Painéis | `I` inventário, `C` criação, `V` arsenal, `B` chefes, `M` mapa, `Esc`/`P` pausa | Start | botões na tela |
-| Salvar | `Ctrl`+`S` (e automático a cada 30s) | — | pausa → Salvar |
+| Tecla / mouse | Ação |
+|---|---|
+| `A` `D` / `←` `→` | Mover |
+| `Espaço` `W` `↑` | Pular · nadar para cima |
+| **Botão esquerdo (segurar)** | Atacar (arco do chicote na direção do cursor; a **ponta** causa o maior dano e **estala**) · minerar · colocar bloco · usar item |
+| **Segurar o ataque e soltar** | **Giro de 360°** do chicote ao redor do jogador (segure 0,45 s ou mais) |
+| `F` / botão do meio · gamepad `Select` · toque ⚓ | **Gancho do chicote**: fisga um bloco e puxa você (1 tipo de bloco por tier) ou pesca um drop no caminho; `Espaço` solta |
+| Botão direito | Abrir baú · abrir/fechar porta · falar com NPC |
+| `1`–`0` / roda do mouse | Selecionar item da barra |
+| `E` / `Tab` | Inventário + criação (fique perto de Bancada, Fornalha, Bigorna…) |
+| `B` | **Arsenal** (modo Criativo) · **Catálogo dos 200 chicotes** (modo Aventura) |
+| `M` | Mapa do mundo · `Q` poção de cura · `+` `-` zoom · `F3` debug · `Esc` pausar/fechar |
+| Menu → **Conquistas** / Pausa → **Conquistas** | Painel das 429 conquistas (abas, progresso e raridades) |
 
-## Progressão resumida
+### Toque (celular/tablet)
 
-Na vila, fale com o **Guia Tomás** (E). Mine minérios com a picareta
-(espaço 2), funda Barras em **Criação** (`C`) e forje chicotes dos próximos
-tiers. Use um **Selo** da barra para invocar o **Rei Slime** e avance pelos
-94 chefes em **Chefes** (`B`): os atos V e VI guardam os chicotes T9–T10 —
-um por chefe — até a Apoteose final, com 4 fases.
+Liga **sozinho** em telas de toque (e pode ser forçado em *Pausa → Controles de toque: automático / ligado / desligado*, o que também permite testar no computador).
 
-## Mundo e save
+| Controle | Ação |
+|---|---|
+| Direcional (esquerda) | Mover · empurrar para cima = pular |
+| Botão **+** grande (direita) | Segurar: atacar · minerar · colocar bloco · usar item. **Arrastar** o dedo a partir dele mira (direção e distância, como o analógico direito do controle) |
+| ▲ · ✋ | Pular · interagir (baú, porta ou NPC mais próximo) |
+| Botões redondos sob o minimapa | Inventário · arsenal/catálogo · mapa · cura rápida · zoom + / − · pausa |
+| Tocar num espaço da barra de itens | Seleciona o item |
+| Inventário e Arsenal | Tocar pega o item e tocar noutro espaço solta; no Arsenal, tocar num chicote a pega, e as abas e os botões de inimigos/chefes respondem ao toque |
+| ✕ (com um painel aberto) | Fecha o painel |
 
-- Mundo de **1400×480 blocos** de 16px com semente única (6 biomas,
-  cavernas, veios por profundidade, lava no fundo) — dois mundos nunca são iguais;
-- Save em **IndexedDB** com salvamento automático e miniatura; perfil e
-  conquistas em **LocalStorage**;
-- **Exportar/importar mapa** em arquivo `.json` em "Meus Mundos";
-- Ciclo dia/noite, escuridão no subsolo com tochas, NPCs com balões em
-  português, loja da vila, música e efeitos sintetizados em WebAudio
-  (sem arquivos externos — o `serve.js` tem MIME de MP3/PDF e Range 206
-  caso você adicione arquivos em `docs/`).
+Multitoque funciona (andar e atacar ao mesmo tempo). O código está em `src/15g_touch.js`.
+
+### Mundos: criar, salvar e continuar
+
+- **Sem campo de semente.** *Nova Aventura* e *Modo Criativo* criam um mundo **novo e único**: a semente é sorteada na hora (`crypto.getRandomValues`) e **nunca se repete** — o jogo guarda todas as sementes já usadas, inclusive as de mundos que você excluiu.
+- **Nenhum mundo parece o outro.** Cada mundo sorteia a **ordem e a largura dos biomas** (deserto, floresta, selva e neve: 24 ordens possíveis), o tamanho dos oceanos das bordas, o ponto de partida (sempre dentro da floresta, para haver árvores logo no começo) e o estilo do relevo (montanhosidade de cada bioma, dunas, cavernas, lagos e ilhas flutuantes). Ao criar um mundo, o jogo escolhe entre 32 candidatos o de mapa de biomas **menos parecido** com os que você já tem — e, enquanto existir uma ordem de biomas inédita, usa uma: **os 24 primeiros mundos têm 24 ordens diferentes**.
+- **Vários mundos salvos.** *Meus Mundos* lista cada mundo com a miniatura do mapa, nome, modo, dia/estágio/chefes, ordem dos biomas e tempo de jogo; *Continuar*, no topo do menu, abre o último. Dá para **renomear** e **excluir** (o 1º clique pede confirmação). Cada mundo recebe um nome automático (ex.: "Aurora do Aço"), único na sua lista.
+- **Salvamento automático**: a cada minuto, logo depois de criar o mundo, ao esconder a aba e em *Salvar e voltar ao menu*; *Salvar mundo*, no menu de pausa, salva na hora. A "foto" do jogo leva ~4 ms (sem engasgo) e a gravação segue em segundo plano.
+- **Onde fica**: no IndexedDB do navegador (banco `chicotes120`, ~150 KB por mundo), então cabem centenas de mundos. Os mundos ficam **neste aparelho, no navegador de quem joga** (por endereço): em outro navegador, aparelho ou endereço a lista começa vazia. Sem IndexedDB (ex.: `<iframe sandbox>`), os mundos duram só enquanto a página estiver aberta, com aviso na tela. Se o espaço acabar, o jogo avisa — nada é perdido em silêncio.
+- **Este aparelho (e por que não o IP).** *Meus Mundos* mostra o aparelho (ex.: `PC · Chrome (Windows)`, `Celular · Safari (iOS)`) e um **código aleatório** (`K7QF-3M9D`), gerado uma vez e guardado no próprio aparelho; cada mundo lembra de que aparelho veio. **O IP não é usado**: um site não consegue ler o IP local (os navegadores escondem), o IP público muda ao trocar de rede (Wi‑Fi ↔ 4G) e é o mesmo para todos na mesma casa ou operadora — se o mapa dependesse dele, "sumiria" ao trocar de rede. Os mapas já estão no aparelho porque o armazenamento do navegador é por aparelho; o código só diz de onde um mapa veio.
+- **Proteção permanente.** Depois do primeiro salvamento o jogo pede ao navegador armazenamento *persistente* (`navigator.storage.persist()`), para ele **não apagar os mapas sozinho** quando faltar espaço. O Chrome decide em silêncio; no Firefox o pedido só acontece pelo botão **Proteger agora** (ele abre um aviso próprio); sem a API, a tela diz isso. O estado aparece em *Meus Mundos* (✔ ativa / ⚠ não garantida).
+- **Backup e levar o mapa para outro aparelho.** *Exportar* (em cada mundo) baixa um arquivo `chicotes-<nome>-<data>-<hora>.json` com o mundo inteiro (~220 KB), guardado onde você quiser; *Importar mapa* aceita vários arquivos de uma vez e funciona em qualquer aparelho, também no modo sem IndexedDB. O arquivo tem **verificação de integridade (CRC‑32)** e, ao importar, **tudo é validado** (itens que existem, camadas do tamanho certo, valores na faixa, miniatura só PNG) e o mundo é reconstruído só com campos permitidos — arquivo corrompido ou adulterado é recusado com o motivo, nunca quebra o jogo nem executa código. Regras: mundo novo entra na lista (nome único, semente registrada: **nunca é sorteada de novo**); o **mesmo mundo** (mesma semente e data de criação) só é atualizado se o arquivo for **mais novo e tiver mais tempo de jogo** — se os dois aparelhos evoluíram separados, nada é trocado e a tela explica; o progresso maior nunca é perdido em silêncio.
+- **Save antigo**: quem tinha o save de um slot só (formato antigo, em `localStorage`) tem o mundo importado automaticamente para *Meus Mundos*, uma única vez.
+- Nos testes, `window.__nextSeed = N` força a semente do próximo mundo criado pelos botões; a interface não oferece como escolher semente.
+
+### Jogar online / publicar
+
+- **GitHub Pages (este repositório):** já ativado — o jogo está em `https://jk-jhon1.github.io/101spas/`. Para ativar numa cópia/fork: *Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch `main`, pasta `/ (root)` → Save* (em 1–2 minutos o jogo fica em `https://SEU_USUARIO.github.io/NOME_DO_REPO/`). O `index.html` já está na raiz e o arquivo `.nojekyll` dispensa o processamento do Jekyll.
+- **Local:** `node serve.js` (ou `npm run serve`) abre o jogo em `http://localhost:8080/` (servido por http, o salvamento e o controle funcionam em qualquer navegador).
+- **Outras hospedagens:** o jogo é um único `index.html`; qualquer hospedagem estática serve — por exemplo **itch.io** (*Kind of project: HTML*, envie um `.zip` com o `index.html` na raiz **e a pasta `docs/` com `Alert at Rest.mp3`**, e marque *"This file will be played in the browser"*) ou **Netlify Drop** (`netlify.com/drop`, arraste a pasta; crie uma conta gratuita para o site não expirar). Sem o MP3 o jogo funciona, mas fica sem a música.
+
+### Controle (gamepad) — mira analógica
+
+O GDD manda orientar o arco pelo "cursor do mouse/**analógico**", então o jogo também roda com controle
+(layout padrão Xbox/PlayStation; o navegador só enxerga o controle depois do primeiro botão apertado).
+
+| Botão | Ação |
+|---|---|
+| Analógico esquerdo / direcional ◀ ▶ | Mover |
+| `A` | Pular · nadar para cima |
+| **Analógico direito** | **Mira analógica**: o arco do chicote aponta para onde o analógico aponta; a inclinação define a distância do alvo (ferramentas ficam sempre dentro do alcance de mineração). Uma cruz mostra o alvo |
+| `RT` ou `X` (segurar) | Atacar · minerar · colocar bloco · usar item. Sem mira no analógico direito: usa o analógico esquerdo (ex.: ↓ para cavar para baixo) ou o lado para onde o jogador olha |
+| `B` | Interagir com o baú / porta / NPC mais próximo (sem precisar mirar) |
+| `LB` `RB` | Item anterior / próximo da barra |
+| `LT` | Poção de cura rápida |
+| `Y` · direcional ▲ · direcional ▼ ou `Select` | Inventário e criação · catálogo/arsenal · mapa |
+| `L3` `R3` | Zoom − / + |
+| `Start` | Pausar / fechar painéis |
+| **Menus** | Direcional ou analógico ▲▼ escolhe, `A` confirma |
+| **Painéis** (inventário, criação, catálogo, NPC) | Analógico esquerdo move um cursor virtual · `A` clica · `X` botão direito · `RB` Shift+clique · analógico direito rola a lista · `B` fecha |
+
+Mouse e controle podem se alternar: mexer o mouse devolve a mira a ele. Dentro de um `<iframe>` sem `allow="gamepad"`
+o navegador bloqueia a API (o jogo detecta isso e simplesmente ignora o controle) — abra o `index.html` direto no navegador.
+
+**Modo Aventura:** comece com o chicote 001 e uma picareta de cobre; minere, crie, derrote chefes e forje os 200 chicotes.
+**Modo Criativo:** Arsenal com todas as chicotes/itens, Boneco de Treino (não morre e mostra o dano de cada golpe), invocação de qualquer
+inimigo/chefe (inclusive variantes elementais), controle de hora, teleporte, estágio do mundo, invencibilidade etc.
+
+### 90 chefes novos
+Além dos 4 chefes da progressão, há **90 chefes novos** em 6 atos (8 + 14 + 16 + 12 + 20 + 20), cada um com **visual próprio** e **uma mecânica única** (tabela completa, com vida, dano, receita e chicote: [`docs/chefes_novos.md`](docs/chefes_novos.md)). Os dois últimos atos guardam os **Tiers 9 e 10**, que não são forjáveis: cada uma das 40 chicotes cai do chefe que a protege.
+- **Como enfrentar:** no *Criativo*, Arsenal → *Inimigos & Chefes*. No modo *Aventura*, forje o **Sigilo** do chefe (receita na estação do ato: Bancada, Bigorna, Bigorna Avançada ou Forja Celeste) e use-o; alguns pedem local ou hora (selva, deserto, oceano, noite, cavernas, Inferno…) e cada ato só abre depois do chefe do ato anterior (Ato II depois do Olho, Ato III depois do Guardião, Ato IV depois do Colosso).
+- **Mecânicas únicas, em exemplos:** a *Rainha Vespa* cospe poças de mel que travam seus passos; o *Caranguejo-Rei* só fica vulnerável com as garras abertas; o *Rei Ossos* ressurge uma vez; a *Medusa* petrifica quem a olha de frente; a *Armadura Viva* só leva dano de verdade pelas costas; o *Dragão Adormecido* acorda a cada golpe que leva; o *Arauto do Vazio* inverte a gravidade; o *Titereiro* inverte seus comandos; e o *Mestre Forjador* aprende a resistir à chicote que você mais usa. No Ato V, o *Serafim* marca você com o veredito e só acertar o chefe anula a sentença; o *Coro dos Querubins* corta o dano em 80% enquanto os três cantam; a *Fênix* vira um ovo de cinzas antes de renascer. No Ato VI, o *Buraco Branco* empurra tudo para longe; o *Cosmos Vivo* tem quatro planetas que absorvem os golpes; o *Axioma* devolve metade do dano enquanto a pedra está acesa; e a **Apoteose**, o chicote 200, tem **quatro estágios** — dois no chão (julgamento e selos) e dois no ar (asas e apoteose final), com um golpe novo em cada um.
+- **Recompensas:** moedas, materiais do ato, poções, às vezes um Cristal de Vida e **um chicote garantida** de cada chefe (as dos Atos I a IV também podem ser forjadas; **as dos Atos V e VI, Tiers 9 e 10, só caem do chefe**).
+- **Selo do Axioma:** a último chicote do jogo (**190 · Axioma**) só cai quando **todos os 94 chefes** já foram derrotados — os 4 clássicos e os 90 novos. Se faltar algum, o chefe continua invocável e o loot normal cai, mas o chicote avisa *“faltam N chefes”* (o tooltip dela, no catálogo, já mostra a condição).
+- **Efeitos novos no jogador** (sempre temporários, somem ao morrer): lentidão, confusão (controles invertidos), atordoamento, silêncio (sem atacar), gravidade invertida, flutuar, maldição (sem cura), sangramento acumulável e tempo lento.
+
+### Progressão
+1. **Tier 1** — madeira, cobre, ferro → Bancada → Fornalha → Bigorna. Picareta ganha poder para novos minérios.
+2. **Tier 2** — platina, meteorito (ilhas do céu e crateras), Brasita do Inferno, gemas, presas, ferrões. Chefes: **Rei Slime**, **Olho Colossal** (à noite).
+3. **Tier 3/4 (Hardmode)** — **Guardião do Abismo** (invocado no Inferno com o Boneco Infernal) inicia o Hardmode: surgem
+   Cobalto/Paládio/Mithril/Orichalcum/Titânio/Adamantita; inimigos elementais dropam **Essências**. Bigorna Avançada (Mithril/Orichalcum).
+4. **Tier 5/6** — Fragmentos Celestes → Forja Celeste. **Colosso Estelar** (chefe final) dropa o **Núcleo Mítico** para o Tier 6.
+
+Estações: Bancada → Fornalha → Bigorna → Bigorna Avançada → Forja Celeste. NPCs (Guia, Mercador, Enfermeira, Armeiro) moram em
+casas válidas (sala fechada com paredes de fundo, luz, mesa/bancada, cadeira e porta).
+
+---
+
+## Mapeamento GDD → implementação
+
+| Seção do GDD | Onde / como foi feito |
+|---|---|
+| Grid de tiles **16×16**, blocos destrutíveis/colocáveis | `TS = 16`; camadas `Uint8Array` de tile/parede/líquido (`02_world.js`, `12_player.js`) |
+| Mundo procedural **assíncrono** | `genWorld()` é um *generator* (`03_worldgen.js`) consumido em fatias de ~14 ms por frame, com barra de progresso. 1400×480 tiles (~0,8 s); biomas horizontais (oceano/deserto/floresta/selva/neve) **em ordem e largura sorteadas por mundo** (`makeLayout`) + camadas verticais (céu, superfície, cavernas, profundas, Inferno) |
+| **Iluminação dinâmica** por propagação de opacidade | `04_light.js`: luz RGB por célula, decaimento pela opacidade do tile de origem, 2×4 varreduras, fontes dinâmicas (projéteis, tochas, lava), ciclo dia/noite. Composição multiplicativa preservando o céu (`16_main.js`) |
+| **Simulação de fluidos / gravidade** | Autômato celular de água e lava (lava+água = obsidiana), areia com gravidade, plantas e objetos sem apoio quebram (`02_world.js`) |
+| Pilares: biomas verticais · minérios progressivos · crafting encadeado · abrigo/NPCs · combate rápido com curva de poder | Camadas do mundo; picaretas de poder 1–9 × dureza dos minérios; 5 estações; `15b_npc.js`; DPS base médio por tier: **17 → 37 → 62 → 88 → 156 → 245** |
+| **Melee**: arco θ0→θfinal em torno do ombro, direção (Cursor − Jogador), cursor do **mouse/analógico** | `09b_swing.js`: ombro como pivô, arco de ~143° centrado na mira, sentido alternado a cada golpe; Thrust/Beam usam a mesma direção. Mira por mouse ou por analógico direito (`15d_gamepad.js` converte a inclinação do analógico em um "cursor" no mundo) |
+| **Knockback** `F = normalize(Alvo−Jogador) × KB` com amortecimento por massa | `hitEnemy()` em `09_combat.js` (`F = KB·58 / (0,5+0,5·massa) · (1−resistência)`) |
+| **I-frames independentes** (jogador × inimigos) | Jogador: `P.inv_` dinâmico (0,55–1,1 s conforme o dano). Inimigos: imunidade **por fonte** (cada golpe/projétil guarda sua janela) — evita hits duplicados em colisões sobrepostas |
+| `DanoFinal = (DanoBase + ModAcessórios) × (1+CritMult) × ModResistência` | `hitEnemy()`: acessórios somam dano plano; crítico `×(1+CritMult)`; resistência `60/(60+defesa×(1−perfuração))`; execução `<15%` de vida multiplica por 1,5 |
+| Projéteis herdam **100% da direção do arco no ápice** | `shoot()` em `10_fx.js` dispara em `inst.aim` a partir de `inst.tip` no meio do arco |
+| **Inventário**: slots, IDs únicos, stack ≤ 999, metadados de raridade | 40 slots + 4 de equipamento; `STACK_MAX = 999`; `item.tier` define cor de borda/nome/tooltip (`TIERS` em `01_data.js`) |
+| **Tiers e cores** (T6 índigo/dourado) | `TIERS`: `#10b981 #0284c7 #7c3aed #d97706 #dc2626 #4f46e5` + brilho dourado no T6 |
+| **Schema `SwordItemSO`** | `11_swords.js`: `swordID, swordName, tierLevel, baseDamage, attackSpeed, knockbackForce, critChance, projectilePrefab, attackType (ArcSwing/Thrust/Orbital/Beam), passiveEffects[]`, métodos `OnSwing(combat, dir)` e `OnHitEnemy(enemy, info)` |
+| **Comportamentos de projétil**: Ballistic, Linear perfurante, Homing, Static/Área | `spawnProj()` (`09_combat.js`): `ballistic` (gravidade), `linear` (`pierce = X`), `homing` (`Vnew = Vcurr + Lerp(Alvo−Pos, steer)`), `static` + `custom` (órbita, onda de chão, feixe, buraco negro…) |
+| **Catálogo de 200 chicotes** | `11_swords.js` + biblioteca de efeitos reutilizáveis `10_fx.js` (hooks `swing/onSwing/onApex/mod/onHit/onKill/tick/atkMult/stats`) |
+
+### Interpretações assumidas (onde o GDD é ambíguo)
+- **Ápice** = metade do arco, quando a lâmina aponta para o cursor; é aí que saem os projéteis e efeitos.
+- **005 Vidro Vulcânico**: 5% de chance de quebrar a cada acerto (devolve metade dos materiais; nunca quebra no Criativo).
+- **056 Sacrifício**: nunca reduz a vida abaixo de 1 HP. **086 Tempo Congelado**: tem 35% de crítico para o efeito ser viável.
+- **096 Quantum**: "costas" = o inimigo olha para o lado oposto ao jogador (os inimigos terrestres demoram ~0,4 s para virar).
+- **055 Fóton**: golpes contínuos sem recuperação (a duração do arco ocupa todo o ciclo).
+
+---
 
 ## Estrutura do projeto
 
 ```
-index.html               ← o jogo inteiro (gerado, não edite à mão)
-build.js                 ← node build.js  → valida as tabelas e gera o index.html
-serve.js                 ← node serve.js  → servidor local (MIME PDF/MP3, Range 206)
+index.html            ← JOGO (arquivo único gerado; é o que você abre)
+build.js              ← concatena src/ em index.html:  node build.js
+serve.js              ← servidor local (node serve.js → http://localhost:8080/)
+package.json          ← scripts npm; única dependência: Playwright (só para os testes de navegador)
 src/
-  00-dados.js            ← TODAS as tabelas: 200 chicotes, 94 chefes, 628 itens, 433 receitas, 429 conquistas
-  10-motor.js            ← RNG com semente, IndexedDB, áudio WebAudio, ícones por código
-  20-mundo.js            ← mundo 1400×480: geração com semente, biomas, física de blocos
-  30-combate.js          ← as 7 mecânicas do chicote, inimigos, chefes, NPCs, conquistas
-  40-interface.js        ← HUD e painéis (azul tipo Terraria mobile)
-  50-jogo.js             ← estado, entrada (teclado/mouse/gamepad/toque), loop 60 fps, desenho
-  style.css · index.template.html
-docs/
-  chicotes_do_destino_prompt.pdf   ← especificação original (prompt)
-  dados-jogo.json · chicotes.csv · chefes.csv · conquistas.csv  ← tabelas exportadas pelo build
-tools/verificar.js       ← confere os critérios de aceite quantitativos
+  00_util.js            matemática, RNG, ruído Perlin, cores
+  01_data.js            TIERS, tiles, paredes, itens, receitas
+  02_world.js           mundo, fluidos, areia, apoio de objetos
+  03_worldgen.js        geração procedural assíncrona (generator)
+  04_light.js           iluminação por propagação de opacidade, céu
+  05_gfx.js / 06_icons  sprites 16×16 procedurais (bordas lascadas, folhas, galhos), ícones 32×32 em pixel-art, sprites dos chicotes
+  06b_swordart.js       arte pixel a pixel das 80 chicotes novas (silhueta, bisel, contorno, pixels emissivos)
+  06c_gearart.js        arte dos equipamentos: minérios, barras, armaduras, acessórios e picaretas, cada peça com geometria própria por semente
+  05b_pixel.js          pixelizador (alfa binário + contorno + sombreamento) usado por inimigos, jogador, NPCs e ícones; bonecos humanos de frente (jogador, NPCs, zumbis); corações da HUD
+  05c_canopy.js         copas das árvores desenhadas por vizinhança: silhueta redonda com contorno escuro, folhas pontiagudas sobrepostas e luz de cima à esquerda (só o desenho; a geração do mundo não muda)
+  05d_bosspaint.js      ferramentas de pintura pixel a pixel dos chefes: formas (polígono, elipse, traço, curva), preenchimento com luz de cima à esquerda, borda, brilho com halo pontilhado e marcação dos pixels que emitem luz
+  05e_bossart.js        sprites dos 4 chefes (corpo escuro + brilho de uma cor), quadros de animação em cache e peças móveis (lanterna, íris, anéis, orbes)
+  05f_bxart.js          base da arte dos 90 chefes novos: rampas de cor, ajudas de pintura (formas, espelho, brilho com halo, contorno), cache de quadros e variantes
+  05g..05l_bxart*.js    um pintor por chefe novo (Ato I a VI; a Apoteose tem 4 variantes, uma por estágio)
+  14b_draw_bx.js        desenho dos chefes novos e dos lacaios (camadas móveis, sombra, tinta de dano)
+  07_sky.js             céu em baixa resolução: faixas, sol/lua com halo, estrelas, nuvens de pixels, colinas em colunas
+  08_phys.js            física AABB, partículas, drops · 08b_audio.js: SFX (WebAudio)
+  09_combat.js          dano, status, projéteis, explosões, feixes
+  09b_swing.js          arco de ataque, ápice, colisão da lâmina
+  10_fx.js              biblioteca de efeitos de chicotes
+  11_swords.js          as 120 chicotes dos Tiers 1–6 (schema SwordItemSO)
+  11b_swords_x.js       as 80 chicotes dos Tiers 7–10 (fábrica S2 + receita de arte A2)
+  11c_gear_x.js         equipamentos: acessórios, armaduras, minérios, barras e picaretas (dados, efeitos e conjuntos)
+  12_player.js          jogador, inventário, crafting, mineração, blocos
+  13_enemies.js         inimigos, IA, spawn, drops · 13b_bosses.js: 4 chefes
+  13c_bossx.js          motor dos 90 chefes novos: registro (bx), laço de IA com golpes em geradores (yield), zonas de perigo, raios com aviso, lacaios, debuffs do jogador, loot e vitória
+  13d..13i_bx_*.js      os 90 chefes novos por ato (dados, mecânica única e golpes de cada um; a Apoteose usa 4 fases)
+  14_draw_enemies.js    sprites dos inimigos; `BOSSDRAW` monta cada chefe com as camadas de 05e e soma o brilho no passe aditivo
+  15_ui.js / 15b_npc.js   HUD, inventário, arsenal, NPCs
+  15c_save.js           biblioteca de mundos: IndexedDB, autosave, miniaturas, migração do save antigo
+  15d_gamepad.js        suporte a controle: mira analógica, menus, cursor virtual nos painéis
+  15e_worlds.js         tela "Meus Mundos", menu do título, criar / abrir / sair
+  15f_transfer.js       este aparelho (código), proteção do armazenamento, mapa em arquivo (exportar / importar + validação)
+  15g_touch.js          controles de toque: direcional virtual, botão de ação com mira por arrasto, pulo, interagir, painéis
+  15h_ach.js            conquistas: 429 registradas (200 de chicote e 94 de chefe geradas das tabelas), painel com abas, aviso, perfil no navegador e saneamento na importação
+  16_main.js            loop, câmera, renderização em camadas (cena em baixa resolução + zoom inteiro), input
+docs/                 catálogo de 200 chicotes e dos equipamentos (md/csv), capturas de tela (img/), logo (img/logo.jpg), a música do jogo (Alert at Rest.mp3) e o prompt do jogo em PDF (chicotes_do_destino_prompt.pdf)
+dev/                  scripts de teste (Node + Playwright)
 ```
 
-## Desenvolver
+### Portar para Unity / Godot
+A arquitetura segue o GDD e foi escrita para ser portada. O schema JS equivale a um `ScriptableObject`:
 
-```bash
-node build.js            # concatena src/*.js no index.html único e exporta as tabelas
-node tools/verificar.js  # valida 200/94/433/628/429, fórmulas, unicidade e offline
-node serve.js 8080       # serve o jogo localmente
+```csharp
+[CreateAssetMenu] public class SwordItemSO : ScriptableObject {
+  public int swordID; public string swordName; [Range(1,6)] public int tierLevel;
+  public float baseDamage, attackSpeed, knockbackForce, critChance;
+  public GameObject projectilePrefab; public AttackType attackType;   // ArcSwing, Thrust, Orbital, Beam
+  public List<PassiveEffect> passiveEffects;
+  public virtual void OnSwing(CombatController c, Vector2 dir) { foreach (var e in passiveEffects) e.OnSwing(c, dir); }
+  public virtual void OnHitEnemy(Enemy e, HitInfo i)          { foreach (var p in passiveEffects) p.OnHit(e, i); }
+}
 ```
+Os hooks de `10_fx.js` (`swing`, `onApex`, `mod`, `onHit`, `onKill`, `tick`) correspondem 1:1 a métodos virtuais de `PassiveEffect`.
+Os dados (tiles, itens, receitas, 200 chicotes) estão em tabelas simples, fáceis de exportar para JSON/CSV (`docs/*.csv`).
 
-Critério técnico de aceite: **o build continua sendo um único arquivo**,
-sem framework nem CDN — `npm install` não é necessário para jogar nem para
-gerar o jogo, apenas o Node para `build.js`/`serve.js`.
+---
+
+## Testes realizados (automatizados, Chromium headless)
+> **Como rodar:** `node dev/validate.js` (catálogo; também regenera `docs/catalogo_*`), `node dev/reach.js`, `node dev/seeds.js`, `node dev/layouts.js` (variedade dos mundos) e `node dev/transfer.js` (mapa em arquivo, validação, aparelho, proteção) e `node dev/test_ach.js` (conquistas, itens de invocação e o selo do Axioma) precisam só do Node (`npm test` roda os seis). Os testes de navegador usam Playwright: `npm install && npx playwright install chromium`, depois `node dev/test_swords.js` etc. (`npm run test:browser` roda os doze com veredito: mundos salvos, aparelho/arquivos, controle, toque, aparência, arsenal, inimigos, chefes, chefes novos (luta e arte), soak e chicotes). `node dev/http_check.js [url]` confere uma URL do jogo (local ou publicada) de ponta a ponta: carrega, salva, recarrega e continua. Os scripts localizam o `index.html` pelo próprio caminho e dividem utilitários em `dev/lib.js`; capturas temporárias vão para `dev/*.png` (ignoradas pelo git). Depois de editar `src/`, recompile com `node build.js`.
+
+- **Catálogo**: 200 chicotes, 20 por tier (10 tiers), faixas de dano por tier, receitas válidas (`node dev/validate.js`).
+- **Progressão**: todo item é obtível e os 200 chicotes são craftáveis a partir de fontes reais do mundo (`node dev/reach.js`); gerador testado em 8 sementes (`node dev/seeds.js`).
+- **Variedade dos mundos** (`dev/layouts.js`): 20.000 layouts (as 24 ordens de bioma equilibradas, oceanos de 90 a 220 colunas, spawn sempre na floresta, larguras mínimas), o sorteio de sementes (nunca repete; os 24 primeiros mundos têm 24 ordens diferentes) e 14 mundos completos comparados entre si — biomas, relevo, terreno bloco a bloco — mais o determinismo (mesma semente = mesmo mundo).
+- **Mundos salvos** (`dev/test_worlds.js`, 60 verificações): 6 mundos criados pelos botões (sementes, nomes, ordens de bioma e miniaturas diferentes), reabrir depois de recarregar a página, **fidelidade do save bloco a bloco** (blocos, paredes, líquidos, baús, inventário, chefes, Hardmode…), autosave, renomear/excluir, teletransporte do Arsenal para o bioma certo, semente excluída que nunca volta, migração do save antigo (inclusive sem IndexedDB: o save antigo nunca é apagado se o mundo não puder ser gravado de verdade), ambiente sem IndexedDB, cota estourada e mundo corrompido.
+- **Mapa em arquivo, aparelho e proteção** — sem navegador (`dev/transfer.js`, 78 verificações): CRC‑32 (igual ao `zlib`), ida e volta byte a byte, **52 adulterações com o CRC refeito** (item/bloco/bioma/NPC inexistente, camadas truncadas, valores fora da faixa, `__proto__`, quantidades absurdas…) todas recusadas sem exceção, fuzz de 400 arquivos corrompidos, regras de importação (novo / atualiza / ignora / divergente), código do aparelho, 12 *user‑agents* e a API de proteção (concedida, negada, com erro, ausente). No navegador (`dev/test_device.js`, 69 verificações): vários "aparelhos" separados — exportar de um e importar em outro (o que fica guardado é **idêntico**, camada por camada), levar o progresso de volta, dois aparelhos que evoluíram separados, proteção (Chrome, Firefox, sem a API), celular (iPhone, sem rolagem horizontal), sem IndexedDB e arquivos maliciosos (injeção de código no nome, na miniatura e no rótulo: nada é executado).
+- **Conquistas, itens de invocação e o selo do Axioma** — sem navegador (`dev/test_ach.js`, 29 verificações): as 429 conquistas (ids únicos, 200 de chicote, 94 de chefe, progresso que não quebra com o jogo vazio e nenhuma nasce concluída), o painel em HTML com todas as linhas, o saneamento do arquivo importado (`achClean`) e a união de perfis sem regressão (`achMerge`), os 4 itens de invocar NPC funcionando só no Criativo (e sem consumir no Aventura), o NPC invocado e as conquistas sobrevivendo ao exportar/importar, e o **Axioma**: o chicote 190 não cai com 1 ou 2 chefes faltando (com o aviso certo) e cai com os 94 derrotados.
+- **Chicotes em combate** (`dev/test_swords.js`): o teste percorre o catálogo inteiro, cada uma ataca bonecos/inimigos por ~4,5 s — sem exceções, todas causam dano, status esperados observados (sangramento, veneno, gelo, atordoamento, tempo parado, podridão, pânico, cegueira…).
+- **Todos os inimigos, variantes elementais e os 4 chefes** (`dev/test_enemies.js`) e **~45.000 passos** de simulação com spawn natural em 14 cenários, todas as camadas e estágios (`dev/soak.js`): zero erros.
+- **Aparência e copas** (`dev/test_skin.js`, 20 verificações): interface azul única (o menu de Pausa não tem botão para trocar, mesmo com a escolha antiga "escura" guardada no aparelho), silhueta, contorno e cache das copas das árvores, lote de desenho, e a ausência do retângulo "DPS · Total" (removido da tela).
+- **Sprites dos 4 chefes** (`dev/test_bosses.js`, 62 verificações): corpo escuro com brilho de uma cor própria para cada chefe, paleta curta, fases, espelhamento exato do Guardião, íris que acompanha o jogador, clarão de dano e tinta de status, sombra no chão dos chefes voadores, cache de quadros limitado, tempo de geração e caixas de colisão intactas.
+- **50 chefes novos — luta** (`dev/test_bx.js`, 501 verificações): cada chefe é invocado, luta nas 3 fases contra um jogador invencível, executa **todos** os seus golpes até o fim, é desenhado em todas as variantes, morre, solta o loot e o chicote e some junto com lacaios, zonas e raios; sem exceções.
+- **50 chefes novos — arte, sigilos e invocação** (`dev/test_bx_art.js`, 508 verificações): silhuetas todas diferentes, corpo escuro com brilho emissivo, paleta curta, caixa de colisão dentro do desenho, nomes/mecânicas/chicotes únicos, estágio e condição de cada sigilo (aceita no lugar certo, recusa no errado), uso do item no modo Aventura e tempo de geração dos quadros.
+- Entrada real de teclado/mouse, crafting pela interface, NPC/moradia, salvar/carregar, fluidos/areia, capturas de tela de biomas e de efeitos.
+- **Toque** (`dev/test_touch.js`, 43 verificações, toque emulado no Chromium com `Input.dispatchTouchEvent`): liga/desliga pelo menu de pausa, liga sozinho no "celular", direcional (direita/esquerda/pulo), botão de pulo, botão de ação com mira por arrasto (ângulo e distância), multitoque (andar + atacar), painéis e botão fechar, zoom inteiro, cura rápida e interagir com baú.
+- **Controle** (`dev/test_gamepad.js`, gamepad simulado, 80 verificações): menus, andar/pular, ângulo real do arco para ↑ → ← ↖ ↘, distância pela inclinação, acerto de inimigo só na direção da mira, minerar/colocar bloco, interagir, mundos salvos (Continuar, Meus Mundos, Jogar, Y exclui), cursor virtual (hover, clique, craft, comprar do NPC), pausa/guia, volta do mouse e API bloqueada.
+
+## Limitações conhecidas
+- Música de fundo **Alert at Rest** (`docs/Alert at Rest.mp3`) em loop, mais os efeitos sonoros sintetizados; liga/desliga no botão de som do menu ou em **Pausado → Som**. Sem multiplayer. O suporte a controle foi validado com gamepad simulado e o de toque com eventos de toque emulados (não com hardware real); o som só liga após o primeiro clique/tecla/botão, regra dos navegadores.
+- Mundo de tamanho fixo (1400×480). Os mundos salvos ficam no IndexedDB do navegador (não funciona dentro de iframes *sandbox*: lá duram só a sessão; abra o HTML direto no navegador ou por http) e não são sincronizados automaticamente entre aparelhos: use *Exportar* / *Importar mapa* (ver acima). Os navegadores podem apagar dados de sites em casos extremos — o Safari (iPhone, iPad e Mac), por exemplo, limpa os de sites que ficam cerca de uma semana sem uso —, então guarde um backup com *Exportar* dos mapas que importam. Painéis de pré-visualização (iframe *sandbox*) bloqueiam o armazenamento e também o download.
+- Balanceamento de chefes/drops validado por simulação, mas não por playtest humano extenso — ajuste os números em `13_enemies.js` / `11_swords.js` se quiser.
+- As chicotes dos tiers 2, 4 e 6 foram escritas para completar o catálogo; ajustar qualquer uma é só editar a linha em `src/11_swords.js` e rodar `node build.js`.
