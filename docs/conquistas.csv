@@ -1,0 +1,430 @@
+﻿id;categoria;nome;descricao;raridade;secreta
+conquista_1;Chicotes;Chicote Trançado;Obter o chicote Chicote Trançado (Tier 1).;Comum;não
+conquista_2;Chicotes;Chicote de Palha Grossa Cru;Obter o chicote Chicote de Palha Grossa Cru (Tier 1).;Comum;não
+conquista_3;Chicotes;Chicote de Cipó Cru;Obter o chicote Chicote de Cipó Cru (Tier 1).;Comum;não
+conquista_4;Chicotes;Chicote de Sisal Cru;Obter o chicote Chicote de Sisal Cru (Tier 1).;Comum;não
+conquista_5;Chicotes;Chicote de Linho Cru;Obter o chicote Chicote de Linho Cru (Tier 1).;Comum;não
+conquista_6;Chicotes;Chicote de Couro do Campo;Obter o chicote Chicote de Couro do Campo (Tier 1).;Comum;não
+conquista_7;Chicotes;Chicote de Palha Grossa do Campo;Obter o chicote Chicote de Palha Grossa do Campo (Tier 1).;Comum;não
+conquista_8;Chicotes;Chicote de Cipó do Campo;Obter o chicote Chicote de Cipó do Campo (Tier 1).;Comum;não
+conquista_9;Chicotes;Chicote de Sisal do Campo;Obter o chicote Chicote de Sisal do Campo (Tier 1).;Comum;não
+conquista_10;Chicotes;Chicote de Linho do Campo;Obter o chicote Chicote de Linho do Campo (Tier 1).;Comum;não
+conquista_11;Chicotes;Chicote de Couro do Viajante;Obter o chicote Chicote de Couro do Viajante (Tier 1).;Comum;não
+conquista_12;Chicotes;Chicote de Palha Grossa do Viajante;Obter o chicote Chicote de Palha Grossa do Viajante (Tier 1).;Comum;não
+conquista_13;Chicotes;Chicote de Cipó do Viajante;Obter o chicote Chicote de Cipó do Viajante (Tier 1).;Comum;não
+conquista_14;Chicotes;Chicote de Sisal do Viajante;Obter o chicote Chicote de Sisal do Viajante (Tier 1).;Comum;não
+conquista_15;Chicotes;Chicote de Linho do Viajante;Obter o chicote Chicote de Linho do Viajante (Tier 1).;Comum;não
+conquista_16;Chicotes;Chicote de Couro Enrolado;Obter o chicote Chicote de Couro Enrolado (Tier 1).;Comum;não
+conquista_17;Chicotes;Chicote de Palha Grossa Enrolado;Obter o chicote Chicote de Palha Grossa Enrolado (Tier 1).;Comum;não
+conquista_18;Chicotes;Chicote de Cipó Enrolado;Obter o chicote Chicote de Cipó Enrolado (Tier 1).;Comum;não
+conquista_19;Chicotes;Chicote de Sisal Enrolado;Obter o chicote Chicote de Sisal Enrolado (Tier 1).;Comum;não
+conquista_20;Chicotes;Chicote de Linho Enrolado;Obter o chicote Chicote de Linho Enrolado (Tier 1).;Comum;não
+conquista_21;Chicotes;Chicote de Cravos;Obter o chicote Chicote de Cravos (Tier 2).;Comum;não
+conquista_22;Chicotes;Chicote de Nós de Ferro Afiado;Obter o chicote Chicote de Nós de Ferro Afiado (Tier 2).;Comum;não
+conquista_23;Chicotes;Chicote de Espinhos Afiado;Obter o chicote Chicote de Espinhos Afiado (Tier 2).;Comum;não
+conquista_24;Chicotes;Chicote de Vidro Verde Afiado;Obter o chicote Chicote de Vidro Verde Afiado (Tier 2).;Comum;não
+conquista_25;Chicotes;Chicote de Cobre Torcido Afiado;Obter o chicote Chicote de Cobre Torcido Afiado (Tier 2).;Comum;não
+conquista_26;Chicotes;Chicote de Cravos Quente;Obter o chicote Chicote de Cravos Quente (Tier 2).;Comum;não
+conquista_27;Chicotes;Chicote de Nós de Ferro Quente;Obter o chicote Chicote de Nós de Ferro Quente (Tier 2).;Comum;não
+conquista_28;Chicotes;Chicote de Espinhos Quente;Obter o chicote Chicote de Espinhos Quente (Tier 2).;Comum;não
+conquista_29;Chicotes;Chicote de Vidro Verde Quente;Obter o chicote Chicote de Vidro Verde Quente (Tier 2).;Comum;não
+conquista_30;Chicotes;Chicote de Cobre Torcido Quente;Obter o chicote Chicote de Cobre Torcido Quente (Tier 2).;Comum;não
+conquista_31;Chicotes;Chicote de Cravos Gelado;Obter o chicote Chicote de Cravos Gelado (Tier 2).;Comum;não
+conquista_32;Chicotes;Chicote de Nós de Ferro Gelado;Obter o chicote Chicote de Nós de Ferro Gelado (Tier 2).;Comum;não
+conquista_33;Chicotes;Chicote de Espinhos Gelado;Obter o chicote Chicote de Espinhos Gelado (Tier 2).;Comum;não
+conquista_34;Chicotes;Chicote de Vidro Verde Gelado;Obter o chicote Chicote de Vidro Verde Gelado (Tier 2).;Comum;não
+conquista_35;Chicotes;Chicote de Cobre Torcido Gelado;Obter o chicote Chicote de Cobre Torcido Gelado (Tier 2).;Comum;não
+conquista_36;Chicotes;Chicote de Cravos Pesado;Obter o chicote Chicote de Cravos Pesado (Tier 2).;Comum;não
+conquista_37;Chicotes;Chicote de Nós de Ferro Pesado;Obter o chicote Chicote de Nós de Ferro Pesado (Tier 2).;Comum;não
+conquista_38;Chicotes;Chicote de Espinhos Pesado;Obter o chicote Chicote de Espinhos Pesado (Tier 2).;Comum;não
+conquista_39;Chicotes;Chicote de Vidro Verde Pesado;Obter o chicote Chicote de Vidro Verde Pesado (Tier 2).;Comum;não
+conquista_40;Chicotes;Chicote de Cobre Torcido Pesado;Obter o chicote Chicote de Cobre Torcido Pesado (Tier 2).;Comum;não
+conquista_41;Chicotes;Chicote de Corrente;Obter o chicote Chicote de Corrente (Tier 3).;Comum;não
+conquista_42;Chicotes;Chicote de Elos Duplos Longo;Obter o chicote Chicote de Elos Duplos Longo (Tier 3).;Comum;não
+conquista_43;Chicotes;Chicote de Malha de Aço Longo;Obter o chicote Chicote de Malha de Aço Longo (Tier 3).;Comum;não
+conquista_44;Chicotes;Chicote de Ganchos Longo;Obter o chicote Chicote de Ganchos Longo (Tier 3).;Comum;não
+conquista_45;Chicotes;Chicote de Argolas Longo;Obter o chicote Chicote de Argolas Longo (Tier 3).;Comum;não
+conquista_46;Chicotes;Chicote de Corrente Sonoro;Obter o chicote Chicote de Corrente Sonoro (Tier 3).;Comum;não
+conquista_47;Chicotes;Chicote de Elos Duplos Sonoro;Obter o chicote Chicote de Elos Duplos Sonoro (Tier 3).;Comum;não
+conquista_48;Chicotes;Chicote de Malha de Aço Sonoro;Obter o chicote Chicote de Malha de Aço Sonoro (Tier 3).;Comum;não
+conquista_49;Chicotes;Chicote de Ganchos Sonoro;Obter o chicote Chicote de Ganchos Sonoro (Tier 3).;Comum;não
+conquista_50;Chicotes;Chicote de Argolas Sonoro;Obter o chicote Chicote de Argolas Sonoro (Tier 3).;Comum;não
+conquista_51;Chicotes;Chicote de Corrente Brilhante;Obter o chicote Chicote de Corrente Brilhante (Tier 3).;Comum;não
+conquista_52;Chicotes;Chicote de Elos Duplos Brilhante;Obter o chicote Chicote de Elos Duplos Brilhante (Tier 3).;Comum;não
+conquista_53;Chicotes;Chicote de Malha de Aço Brilhante;Obter o chicote Chicote de Malha de Aço Brilhante (Tier 3).;Comum;não
+conquista_54;Chicotes;Chicote de Ganchos Brilhante;Obter o chicote Chicote de Ganchos Brilhante (Tier 3).;Comum;não
+conquista_55;Chicotes;Chicote de Argolas Brilhante;Obter o chicote Chicote de Argolas Brilhante (Tier 3).;Comum;não
+conquista_56;Chicotes;Chicote de Corrente Sem Fim;Obter o chicote Chicote de Corrente Sem Fim (Tier 3).;Comum;não
+conquista_57;Chicotes;Chicote de Elos Duplos Sem Fim;Obter o chicote Chicote de Elos Duplos Sem Fim (Tier 3).;Comum;não
+conquista_58;Chicotes;Chicote de Malha de Aço Sem Fim;Obter o chicote Chicote de Malha de Aço Sem Fim (Tier 3).;Comum;não
+conquista_59;Chicotes;Chicote de Ganchos Sem Fim;Obter o chicote Chicote de Ganchos Sem Fim (Tier 3).;Comum;não
+conquista_60;Chicotes;Chicote de Argolas Sem Fim;Obter o chicote Chicote de Argolas Sem Fim (Tier 3).;Comum;não
+conquista_61;Chicotes;Chicote Serrilhado;Obter o chicote Chicote Serrilhado (Tier 4).;Raro;não
+conquista_62;Chicotes;Chicote de Cravos de Osso Serrilhado;Obter o chicote Chicote de Cravos de Osso Serrilhado (Tier 4).;Raro;não
+conquista_63;Chicotes;Chicote de Garra Serrilhado;Obter o chicote Chicote de Garra Serrilhado (Tier 4).;Raro;não
+conquista_64;Chicotes;Chicote de Marfim Serrilhado;Obter o chicote Chicote de Marfim Serrilhado (Tier 4).;Raro;não
+conquista_65;Chicotes;Chicote de Vértebras Serrilhado;Obter o chicote Chicote de Vértebras Serrilhado (Tier 4).;Raro;não
+conquista_66;Chicotes;Chicote de Osso Profundo;Obter o chicote Chicote de Osso Profundo (Tier 4).;Raro;não
+conquista_67;Chicotes;Chicote de Cravos de Osso Profundo;Obter o chicote Chicote de Cravos de Osso Profundo (Tier 4).;Raro;não
+conquista_68;Chicotes;Chicote de Garra Profundo;Obter o chicote Chicote de Garra Profundo (Tier 4).;Raro;não
+conquista_69;Chicotes;Chicote de Marfim Profundo;Obter o chicote Chicote de Marfim Profundo (Tier 4).;Raro;não
+conquista_70;Chicotes;Chicote de Vértebras Profundo;Obter o chicote Chicote de Vértebras Profundo (Tier 4).;Raro;não
+conquista_71;Chicotes;Chicote de Osso do Abismo;Obter o chicote Chicote de Osso do Abismo (Tier 4).;Raro;não
+conquista_72;Chicotes;Chicote de Cravos de Osso do Abismo;Obter o chicote Chicote de Cravos de Osso do Abismo (Tier 4).;Raro;não
+conquista_73;Chicotes;Chicote de Garra do Abismo;Obter o chicote Chicote de Garra do Abismo (Tier 4).;Raro;não
+conquista_74;Chicotes;Chicote de Marfim do Abismo;Obter o chicote Chicote de Marfim do Abismo (Tier 4).;Raro;não
+conquista_75;Chicotes;Chicote de Vértebras do Abismo;Obter o chicote Chicote de Vértebras do Abismo (Tier 4).;Raro;não
+conquista_76;Chicotes;Chicote de Osso Vibrante;Obter o chicote Chicote de Osso Vibrante (Tier 4).;Raro;não
+conquista_77;Chicotes;Chicote de Cravos de Osso Vibrante;Obter o chicote Chicote de Cravos de Osso Vibrante (Tier 4).;Raro;não
+conquista_78;Chicotes;Chicote de Garra Vibrante;Obter o chicote Chicote de Garra Vibrante (Tier 4).;Raro;não
+conquista_79;Chicotes;Chicote de Marfim Vibrante;Obter o chicote Chicote de Marfim Vibrante (Tier 4).;Raro;não
+conquista_80;Chicotes;Chicote de Vértebras Vibrante;Obter o chicote Chicote de Vértebras Vibrante (Tier 4).;Raro;não
+conquista_81;Chicotes;Par de Gêmeos;Obter o chicote Par de Gêmeos (Tier 5).;Raro;não
+conquista_82;Chicotes;Chicote Gêmeo de Aço Veloz;Obter o chicote Chicote Gêmeo de Aço Veloz (Tier 5).;Raro;não
+conquista_83;Chicotes;Chicote Gêmeo Carmesim Veloz;Obter o chicote Chicote Gêmeo Carmesim Veloz (Tier 5).;Raro;não
+conquista_84;Chicotes;Chicote Gêmeo de Prata Veloz;Obter o chicote Chicote Gêmeo de Prata Veloz (Tier 5).;Raro;não
+conquista_85;Chicotes;Chicote Gêmeo Sombrio Veloz;Obter o chicote Chicote Gêmeo Sombrio Veloz (Tier 5).;Raro;não
+conquista_86;Chicotes;Chicote Gêmeo de Couro Fino Espelhado;Obter o chicote Chicote Gêmeo de Couro Fino Espelhado (Tier 5).;Raro;não
+conquista_87;Chicotes;Chicote Gêmeo de Aço Espelhado;Obter o chicote Chicote Gêmeo de Aço Espelhado (Tier 5).;Raro;não
+conquista_88;Chicotes;Chicote Gêmeo Carmesim Espelhado;Obter o chicote Chicote Gêmeo Carmesim Espelhado (Tier 5).;Raro;não
+conquista_89;Chicotes;Chicote Gêmeo de Prata Espelhado;Obter o chicote Chicote Gêmeo de Prata Espelhado (Tier 5).;Raro;não
+conquista_90;Chicotes;Chicote Gêmeo Sombrio Espelhado;Obter o chicote Chicote Gêmeo Sombrio Espelhado (Tier 5).;Raro;não
+conquista_91;Chicotes;Chicote Gêmeo de Couro Fino Dançante;Obter o chicote Chicote Gêmeo de Couro Fino Dançante (Tier 5).;Raro;não
+conquista_92;Chicotes;Chicote Gêmeo de Aço Dançante;Obter o chicote Chicote Gêmeo de Aço Dançante (Tier 5).;Raro;não
+conquista_93;Chicotes;Chicote Gêmeo Carmesim Dançante;Obter o chicote Chicote Gêmeo Carmesim Dançante (Tier 5).;Raro;não
+conquista_94;Chicotes;Chicote Gêmeo de Prata Dançante;Obter o chicote Chicote Gêmeo de Prata Dançante (Tier 5).;Raro;não
+conquista_95;Chicotes;Chicote Gêmeo Sombrio Dançante;Obter o chicote Chicote Gêmeo Sombrio Dançante (Tier 5).;Raro;não
+conquista_96;Chicotes;Chicote Gêmeo de Couro Fino Furioso;Obter o chicote Chicote Gêmeo de Couro Fino Furioso (Tier 5).;Raro;não
+conquista_97;Chicotes;Chicote Gêmeo de Aço Furioso;Obter o chicote Chicote Gêmeo de Aço Furioso (Tier 5).;Raro;não
+conquista_98;Chicotes;Chicote Gêmeo Carmesim Furioso;Obter o chicote Chicote Gêmeo Carmesim Furioso (Tier 5).;Raro;não
+conquista_99;Chicotes;Chicote Gêmeo de Prata Furioso;Obter o chicote Chicote Gêmeo de Prata Furioso (Tier 5).;Raro;não
+conquista_100;Chicotes;Chicote Gêmeo Sombrio Furioso;Obter o chicote Chicote Gêmeo Sombrio Furioso (Tier 5).;Raro;não
+conquista_101;Chicotes;Chicote do Eclipse;Obter o chicote Chicote do Eclipse (Tier 6).;Raro;não
+conquista_102;Chicotes;Chicote de Fibra Lunar Mítico;Obter o chicote Chicote de Fibra Lunar Mítico (Tier 6).;Raro;não
+conquista_103;Chicotes;Chicote de Linha do Eclipse Mítico;Obter o chicote Chicote de Linha do Eclipse Mítico (Tier 6).;Raro;não
+conquista_104;Chicotes;Chicote de Runa Viva Mítico;Obter o chicote Chicote de Runa Viva Mítico (Tier 6).;Raro;não
+conquista_105;Chicotes;Chicote de Véu Negro Mítico;Obter o chicote Chicote de Véu Negro Mítico (Tier 6).;Raro;não
+conquista_106;Chicotes;Chicote de Fio Rúnico do Portal;Obter o chicote Chicote de Fio Rúnico do Portal (Tier 6).;Raro;não
+conquista_107;Chicotes;Chicote de Fibra Lunar do Portal;Obter o chicote Chicote de Fibra Lunar do Portal (Tier 6).;Raro;não
+conquista_108;Chicotes;Chicote de Linha do Eclipse do Portal;Obter o chicote Chicote de Linha do Eclipse do Portal (Tier 6).;Raro;não
+conquista_109;Chicotes;Chicote de Runa Viva do Portal;Obter o chicote Chicote de Runa Viva do Portal (Tier 6).;Raro;não
+conquista_110;Chicotes;Chicote de Véu Negro do Portal;Obter o chicote Chicote de Véu Negro do Portal (Tier 6).;Raro;não
+conquista_111;Chicotes;Chicote de Fio Rúnico Estrelado;Obter o chicote Chicote de Fio Rúnico Estrelado (Tier 6).;Raro;não
+conquista_112;Chicotes;Chicote de Fibra Lunar Estrelado;Obter o chicote Chicote de Fibra Lunar Estrelado (Tier 6).;Raro;não
+conquista_113;Chicotes;Chicote de Linha do Eclipse Estrelado;Obter o chicote Chicote de Linha do Eclipse Estrelado (Tier 6).;Raro;não
+conquista_114;Chicotes;Chicote de Runa Viva Estrelado;Obter o chicote Chicote de Runa Viva Estrelado (Tier 6).;Raro;não
+conquista_115;Chicotes;Chicote de Véu Negro Estrelado;Obter o chicote Chicote de Véu Negro Estrelado (Tier 6).;Raro;não
+conquista_116;Chicotes;Chicote de Fio Rúnico Profético;Obter o chicote Chicote de Fio Rúnico Profético (Tier 6).;Raro;não
+conquista_117;Chicotes;Chicote de Fibra Lunar Profético;Obter o chicote Chicote de Fibra Lunar Profético (Tier 6).;Raro;não
+conquista_118;Chicotes;Chicote de Linha do Eclipse Profético;Obter o chicote Chicote de Linha do Eclipse Profético (Tier 6).;Raro;não
+conquista_119;Chicotes;Chicote de Runa Viva Profético;Obter o chicote Chicote de Runa Viva Profético (Tier 6).;Raro;não
+conquista_120;Chicotes;Chicote de Véu Negro Profético;Obter o chicote Chicote de Véu Negro Profético (Tier 6).;Raro;não
+conquista_121;Chicotes;Chicote Forja Estelar;Obter o chicote Chicote Forja Estelar (Tier 7).;Épico;não
+conquista_122;Chicotes;Chicote de Brasa Estelar da Forja Alta;Obter o chicote Chicote de Brasa Estelar da Forja Alta (Tier 7).;Épico;não
+conquista_123;Chicotes;Chicote de Fio Solar da Forja Alta;Obter o chicote Chicote de Fio Solar da Forja Alta (Tier 7).;Épico;não
+conquista_124;Chicotes;Chicote de Cometa da Forja Alta;Obter o chicote Chicote de Cometa da Forja Alta (Tier 7).;Épico;não
+conquista_125;Chicotes;Chicote de Aurora da Forja Alta;Obter o chicote Chicote de Aurora da Forja Alta (Tier 7).;Épico;não
+conquista_126;Chicotes;Chicote de Estrela Fundida Dourado;Obter o chicote Chicote de Estrela Fundida Dourado (Tier 7).;Épico;não
+conquista_127;Chicotes;Chicote de Brasa Estelar Dourado;Obter o chicote Chicote de Brasa Estelar Dourado (Tier 7).;Épico;não
+conquista_128;Chicotes;Chicote de Fio Solar Dourado;Obter o chicote Chicote de Fio Solar Dourado (Tier 7).;Épico;não
+conquista_129;Chicotes;Chicote de Cometa Dourado;Obter o chicote Chicote de Cometa Dourado (Tier 7).;Épico;não
+conquista_130;Chicotes;Chicote de Aurora Dourado;Obter o chicote Chicote de Aurora Dourado (Tier 7).;Épico;não
+conquista_131;Chicotes;Chicote de Estrela Fundida Elétrico;Obter o chicote Chicote de Estrela Fundida Elétrico (Tier 7).;Épico;não
+conquista_132;Chicotes;Chicote de Brasa Estelar Elétrico;Obter o chicote Chicote de Brasa Estelar Elétrico (Tier 7).;Épico;não
+conquista_133;Chicotes;Chicote de Fio Solar Elétrico;Obter o chicote Chicote de Fio Solar Elétrico (Tier 7).;Épico;não
+conquista_134;Chicotes;Chicote de Cometa Elétrico;Obter o chicote Chicote de Cometa Elétrico (Tier 7).;Épico;não
+conquista_135;Chicotes;Chicote de Aurora Elétrico;Obter o chicote Chicote de Aurora Elétrico (Tier 7).;Épico;não
+conquista_136;Chicotes;Chicote de Estrela Fundida Ecoante;Obter o chicote Chicote de Estrela Fundida Ecoante (Tier 7).;Épico;não
+conquista_137;Chicotes;Chicote de Brasa Estelar Ecoante;Obter o chicote Chicote de Brasa Estelar Ecoante (Tier 7).;Épico;não
+conquista_138;Chicotes;Chicote de Fio Solar Ecoante;Obter o chicote Chicote de Fio Solar Ecoante (Tier 7).;Épico;não
+conquista_139;Chicotes;Chicote de Cometa Ecoante;Obter o chicote Chicote de Cometa Ecoante (Tier 7).;Épico;não
+conquista_140;Chicotes;Chicote de Aurora Ecoante;Obter o chicote Chicote de Aurora Ecoante (Tier 7).;Épico;não
+conquista_141;Chicotes;Chicote do Relicário;Obter o chicote Chicote do Relicário (Tier 8).;Épico;não
+conquista_142;Chicotes;Chicote de Olhos Fechados do Relicário;Obter o chicote Chicote de Olhos Fechados do Relicário (Tier 8).;Épico;não
+conquista_143;Chicotes;Chicote de Corrente Vazia do Relicário;Obter o chicote Chicote de Corrente Vazia do Relicário (Tier 8).;Épico;não
+conquista_144;Chicotes;Chicote de Almas Presas do Relicário;Obter o chicote Chicote de Almas Presas do Relicário (Tier 8).;Épico;não
+conquista_145;Chicotes;Chicote de Ossos Antigos do Relicário;Obter o chicote Chicote de Ossos Antigos do Relicário (Tier 8).;Épico;não
+conquista_146;Chicotes;Chicote de Relíquias Devorador;Obter o chicote Chicote de Relíquias Devorador (Tier 8).;Épico;não
+conquista_147;Chicotes;Chicote de Olhos Fechados Devorador;Obter o chicote Chicote de Olhos Fechados Devorador (Tier 8).;Épico;não
+conquista_148;Chicotes;Chicote de Corrente Vazia Devorador;Obter o chicote Chicote de Corrente Vazia Devorador (Tier 8).;Épico;não
+conquista_149;Chicotes;Chicote de Almas Presas Devorador;Obter o chicote Chicote de Almas Presas Devorador (Tier 8).;Épico;não
+conquista_150;Chicotes;Chicote de Ossos Antigos Devorador;Obter o chicote Chicote de Ossos Antigos Devorador (Tier 8).;Épico;não
+conquista_151;Chicotes;Chicote de Relíquias Silencioso;Obter o chicote Chicote de Relíquias Silencioso (Tier 8).;Épico;não
+conquista_152;Chicotes;Chicote de Olhos Fechados Silencioso;Obter o chicote Chicote de Olhos Fechados Silencioso (Tier 8).;Épico;não
+conquista_153;Chicotes;Chicote de Corrente Vazia Silencioso;Obter o chicote Chicote de Corrente Vazia Silencioso (Tier 8).;Épico;não
+conquista_154;Chicotes;Chicote de Almas Presas Silencioso;Obter o chicote Chicote de Almas Presas Silencioso (Tier 8).;Épico;não
+conquista_155;Chicotes;Chicote de Ossos Antigos Silencioso;Obter o chicote Chicote de Ossos Antigos Silencioso (Tier 8).;Épico;não
+conquista_156;Chicotes;Chicote de Relíquias Amaldiçoado;Obter o chicote Chicote de Relíquias Amaldiçoado (Tier 8).;Épico;não
+conquista_157;Chicotes;Chicote de Olhos Fechados Amaldiçoado;Obter o chicote Chicote de Olhos Fechados Amaldiçoado (Tier 8).;Épico;não
+conquista_158;Chicotes;Chicote de Corrente Vazia Amaldiçoado;Obter o chicote Chicote de Corrente Vazia Amaldiçoado (Tier 8).;Épico;não
+conquista_159;Chicotes;Chicote de Almas Presas Amaldiçoado;Obter o chicote Chicote de Almas Presas Amaldiçoado (Tier 8).;Épico;não
+conquista_160;Chicotes;Chicote de Ossos Antigos Amaldiçoado;Obter o chicote Chicote de Ossos Antigos Amaldiçoado (Tier 8).;Épico;não
+conquista_161;Chicotes;Chicote Eco Primordial;Obter o chicote Chicote Eco Primordial (Tier 9).;Lendário;não
+conquista_162;Chicotes;Chicote de Eco Dourado Primordial;Obter o chicote Chicote de Eco Dourado Primordial (Tier 9).;Lendário;não
+conquista_163;Chicotes;Chicote de Voz Primeira Primordial;Obter o chicote Chicote de Voz Primeira Primordial (Tier 9).;Lendário;não
+conquista_164;Chicotes;Chicote de Aurora Primordial Primordial;Obter o chicote Chicote de Aurora Primordial Primordial (Tier 9).;Lendário;não
+conquista_165;Chicotes;Chicote de Tempo Preso Primordial;Obter o chicote Chicote de Tempo Preso Primordial (Tier 9).;Lendário;não
+conquista_166;Chicotes;Chicote de Luz Antiga do Julgamento;Obter o chicote Chicote de Luz Antiga do Julgamento (Tier 9).;Lendário;não
+conquista_167;Chicotes;Chicote de Eco Dourado do Julgamento;Obter o chicote Chicote de Eco Dourado do Julgamento (Tier 9).;Lendário;não
+conquista_168;Chicotes;Chicote de Voz Primeira do Julgamento;Obter o chicote Chicote de Voz Primeira do Julgamento (Tier 9).;Lendário;não
+conquista_169;Chicotes;Chicote de Aurora Primordial do Julgamento;Obter o chicote Chicote de Aurora Primordial do Julgamento (Tier 9).;Lendário;não
+conquista_170;Chicotes;Chicote de Tempo Preso do Julgamento;Obter o chicote Chicote de Tempo Preso do Julgamento (Tier 9).;Lendário;não
+conquista_171;Chicotes;Chicote de Luz Antiga Eterno;Obter o chicote Chicote de Luz Antiga Eterno (Tier 9).;Lendário;não
+conquista_172;Chicotes;Chicote de Eco Dourado Eterno;Obter o chicote Chicote de Eco Dourado Eterno (Tier 9).;Lendário;não
+conquista_173;Chicotes;Chicote de Voz Primeira Eterno;Obter o chicote Chicote de Voz Primeira Eterno (Tier 9).;Lendário;não
+conquista_174;Chicotes;Chicote de Aurora Primordial Eterno;Obter o chicote Chicote de Aurora Primordial Eterno (Tier 9).;Lendário;não
+conquista_175;Chicotes;Chicote de Tempo Preso Eterno;Obter o chicote Chicote de Tempo Preso Eterno (Tier 9).;Lendário;não
+conquista_176;Chicotes;Chicote de Luz Antiga Divino;Obter o chicote Chicote de Luz Antiga Divino (Tier 9).;Lendário;não
+conquista_177;Chicotes;Chicote de Eco Dourado Divino;Obter o chicote Chicote de Eco Dourado Divino (Tier 9).;Lendário;não
+conquista_178;Chicotes;Chicote de Voz Primeira Divino;Obter o chicote Chicote de Voz Primeira Divino (Tier 9).;Lendário;não
+conquista_179;Chicotes;Chicote de Aurora Primordial Divino;Obter o chicote Chicote de Aurora Primordial Divino (Tier 9).;Lendário;não
+conquista_180;Chicotes;Chicote de Tempo Preso Divino;Obter o chicote Chicote de Tempo Preso Divino (Tier 9).;Lendário;não
+conquista_181;Chicotes;Chicote da Origem;Obter o chicote Chicote da Origem (Tier 10).;Lendário;não
+conquista_182;Chicotes;Chicote do Primeiro Estalo Cósmico;Obter o chicote Chicote do Primeiro Estalo Cósmico (Tier 10).;Lendário;não
+conquista_183;Chicotes;Chicote do Fim do Fio Cósmico;Obter o chicote Chicote do Fim do Fio Cósmico (Tier 10).;Lendário;não
+conquista_184;Chicotes;Chicote do Big Bang Cósmico;Obter o chicote Chicote do Big Bang Cósmico (Tier 10).;Lendário;não
+conquista_185;Chicotes;Chicote do Nada Cósmico;Obter o chicote Chicote do Nada Cósmico (Tier 10).;Lendário;não
+conquista_186;Chicotes;Chicote da Origem Absoluto;Obter o chicote Chicote da Origem Absoluto (Tier 10).;Lendário;não
+conquista_187;Chicotes;Chicote do Primeiro Estalo Absoluto;Obter o chicote Chicote do Primeiro Estalo Absoluto (Tier 10).;Lendário;não
+conquista_188;Chicotes;Chicote do Fim do Fio Absoluto;Obter o chicote Chicote do Fim do Fio Absoluto (Tier 10).;Lendário;não
+conquista_189;Chicotes;Chicote do Big Bang Absoluto;Obter o chicote Chicote do Big Bang Absoluto (Tier 10).;Lendário;não
+conquista_190;Chicotes;Chicote do Nada Absoluto;Obter o chicote Chicote do Nada Absoluto (Tier 10).;Lendário;não
+conquista_191;Chicotes;Chicote da Origem da Singularidade;Obter o chicote Chicote da Origem da Singularidade (Tier 10).;Lendário;não
+conquista_192;Chicotes;Chicote do Primeiro Estalo da Singularidade;Obter o chicote Chicote do Primeiro Estalo da Singularidade (Tier 10).;Lendário;não
+conquista_193;Chicotes;Chicote do Fim do Fio da Singularidade;Obter o chicote Chicote do Fim do Fio da Singularidade (Tier 10).;Lendário;não
+conquista_194;Chicotes;Chicote do Big Bang da Singularidade;Obter o chicote Chicote do Big Bang da Singularidade (Tier 10).;Lendário;não
+conquista_195;Chicotes;Chicote do Nada da Singularidade;Obter o chicote Chicote do Nada da Singularidade (Tier 10).;Lendário;não
+conquista_196;Chicotes;Chicote da Origem Final;Obter o chicote Chicote da Origem Final (Tier 10).;Lendário;não
+conquista_197;Chicotes;Chicote do Primeiro Estalo Final;Obter o chicote Chicote do Primeiro Estalo Final (Tier 10).;Lendário;não
+conquista_198;Chicotes;Chicote do Fim do Fio Final;Obter o chicote Chicote do Fim do Fio Final (Tier 10).;Lendário;não
+conquista_199;Chicotes;Chicote do Big Bang Final;Obter o chicote Chicote do Big Bang Final (Tier 10).;Lendário;não
+conquista_200;Chicotes;Apoteose;Obter o chicote Apoteose (Tier 10).;Lendário;não
+conquista_201;Chefes;Queda de Rei Slime;Derrotar Rei Slime (Clássicos).;Comum;não
+conquista_202;Chefes;Queda de Olho Colossal;Derrotar Olho Colossal (Clássicos).;Comum;não
+conquista_203;Chefes;Queda de Guardião do Abismo;Derrotar Guardião do Abismo (Clássicos).;Comum;não
+conquista_204;Chefes;Queda de Colosso Estelar;Derrotar Colosso Estelar (Clássicos).;Comum;não
+conquista_205;Chefes;Queda de Thorora;Derrotar Thorora, a Fome Antiga (I · Despertar).;Comum;não
+conquista_206;Chefes;Queda de Zamora;Derrotar Zamora, o Rei Sem Coroa (I · Despertar).;Comum;não
+conquista_207;Chefes;Queda de Belora;Derrotar Belora, a Boca do Céu (I · Despertar).;Comum;não
+conquista_208;Chefes;Queda de Rynora;Derrotar Rynora, o Espelho Fundo (I · Despertar).;Comum;não
+conquista_209;Chefes;Queda de Ogora;Derrotar Ogora, a Maré de Vidro (I · Despertar).;Comum;não
+conquista_210;Chefes;Queda de Aelora;Derrotar Aelora, o Último Farol (I · Despertar).;Comum;não
+conquista_211;Chefes;Queda de Nixora;Derrotar Nixora, a Coroa de Ossos (I · Despertar).;Comum;não
+conquista_212;Chefes;Queda de Corora;Derrotar Corora, o Jardim de Ferro (I · Despertar).;Comum;não
+conquista_213;Chefes;Queda de Talora;Derrotar Talora, a Serpe de Sal (II · Pós-Olho).;Raro;não
+conquista_214;Chefes;Queda de Yrgora;Derrotar Yrgora, o Mar de Cinzas (II · Pós-Olho).;Raro;não
+conquista_215;Chefes;Queda de Molora;Derrotar Molora, a Filha do Eco (II · Pós-Olho).;Raro;não
+conquista_216;Chefes;Queda de Fenora;Derrotar Fenora, o Trono Torto (II · Pós-Olho).;Raro;não
+conquista_217;Chefes;Queda de Sarora;Derrotar Sarora, a Primeira Noite (II · Pós-Olho).;Raro;não
+conquista_218;Chefes;Queda de Ossora;Derrotar Ossora, o Sino Partido (II · Pós-Olho).;Raro;não
+conquista_219;Chefes;Queda de Vexath;Derrotar Vexath, a Mãe das Correntes (II · Pós-Olho).;Raro;não
+conquista_220;Chefes;Queda de Morath;Derrotar Morath, o Devorador de Pontes (II · Pós-Olho).;Raro;não
+conquista_221;Chefes;Queda de Karath;Derrotar Karath, a Chuva Negra (II · Pós-Olho).;Raro;não
+conquista_222;Chefes;Queda de Sylath;Derrotar Sylath, o Relógio Parado (II · Pós-Olho).;Raro;não
+conquista_223;Chefes;Queda de Thorath;Derrotar Thorath, a Voz do Fundo (II · Pós-Olho).;Raro;não
+conquista_224;Chefes;Queda de Zamath;Derrotar Zamath, o Mapa Vivo (II · Pós-Olho).;Raro;não
+conquista_225;Chefes;Queda de Belath;Derrotar Belath, a Fome Antiga (II · Pós-Olho).;Raro;não
+conquista_226;Chefes;Queda de Rynath;Derrotar Rynath, o Rei Sem Coroa (II · Pós-Olho).;Raro;não
+conquista_227;Chefes;Queda de Ogath;Derrotar Ogath, a Boca do Céu (III · Hardmode).;Raro;não
+conquista_228;Chefes;Queda de Aelath;Derrotar Aelath, o Espelho Fundo (III · Hardmode).;Raro;não
+conquista_229;Chefes;Queda de Nixath;Derrotar Nixath, a Maré de Vidro (III · Hardmode).;Raro;não
+conquista_230;Chefes;Queda de Corath;Derrotar Corath, o Último Farol (III · Hardmode).;Raro;não
+conquista_231;Chefes;Queda de Talath;Derrotar Talath, a Coroa de Ossos (III · Hardmode).;Raro;não
+conquista_232;Chefes;Queda de Yrgath;Derrotar Yrgath, o Jardim de Ferro (III · Hardmode).;Raro;não
+conquista_233;Chefes;Queda de Molath;Derrotar Molath, a Serpe de Sal (III · Hardmode).;Raro;não
+conquista_234;Chefes;Queda de Fenath;Derrotar Fenath, o Mar de Cinzas (III · Hardmode).;Raro;não
+conquista_235;Chefes;Queda de Sarath;Derrotar Sarath, a Filha do Eco (III · Hardmode).;Raro;não
+conquista_236;Chefes;Queda de Ossath;Derrotar Ossath, o Trono Torto (III · Hardmode).;Raro;não
+conquista_237;Chefes;Queda de Vexion;Derrotar Vexion, a Primeira Noite (III · Hardmode).;Raro;não
+conquista_238;Chefes;Queda de Morion;Derrotar Morion, o Sino Partido (III · Hardmode).;Raro;não
+conquista_239;Chefes;Queda de Karion;Derrotar Karion, a Mãe das Correntes (III · Hardmode).;Raro;não
+conquista_240;Chefes;Queda de Sylion;Derrotar Sylion, o Devorador de Pontes (III · Hardmode).;Raro;não
+conquista_241;Chefes;Queda de Thorion;Derrotar Thorion, a Chuva Negra (III · Hardmode).;Raro;não
+conquista_242;Chefes;Queda de Zamion;Derrotar Zamion, o Relógio Parado (III · Hardmode).;Raro;não
+conquista_243;Chefes;Queda de Belion;Derrotar Belion, a Voz do Fundo (IV · Além do Colosso).;Épico;não
+conquista_244;Chefes;Queda de Rynion;Derrotar Rynion, o Mapa Vivo (IV · Além do Colosso).;Épico;não
+conquista_245;Chefes;Queda de Ogion;Derrotar Ogion, a Fome Antiga (IV · Além do Colosso).;Épico;não
+conquista_246;Chefes;Queda de Aelion;Derrotar Aelion, o Rei Sem Coroa (IV · Além do Colosso).;Épico;não
+conquista_247;Chefes;Queda de Nixion;Derrotar Nixion, a Boca do Céu (IV · Além do Colosso).;Épico;não
+conquista_248;Chefes;Queda de Corion;Derrotar Corion, o Espelho Fundo (IV · Além do Colosso).;Épico;não
+conquista_249;Chefes;Queda de Talion;Derrotar Talion, a Maré de Vidro (IV · Além do Colosso).;Épico;não
+conquista_250;Chefes;Queda de Yrgion;Derrotar Yrgion, o Último Farol (IV · Além do Colosso).;Épico;não
+conquista_251;Chefes;Queda de Molion;Derrotar Molion, a Coroa de Ossos (IV · Além do Colosso).;Épico;não
+conquista_252;Chefes;Queda de Fenion;Derrotar Fenion, o Jardim de Ferro (IV · Além do Colosso).;Épico;não
+conquista_253;Chefes;Queda de Sarion;Derrotar Sarion, a Serpe de Sal (IV · Além do Colosso).;Épico;não
+conquista_254;Chefes;Queda de Ossion;Derrotar Ossion, o Mar de Cinzas (IV · Além do Colosso).;Épico;não
+conquista_255;Chefes;Queda de Vexara;Derrotar Vexara, a Filha do Eco (V · Além do Firmamento).;Épico;não
+conquista_256;Chefes;Queda de Morara;Derrotar Morara, o Trono Torto (V · Além do Firmamento).;Épico;não
+conquista_257;Chefes;Queda de Karara;Derrotar Karara, a Primeira Noite (V · Além do Firmamento).;Épico;não
+conquista_258;Chefes;Queda de Sylara;Derrotar Sylara, o Sino Partido (V · Além do Firmamento).;Épico;não
+conquista_259;Chefes;Queda de Thorara;Derrotar Thorara, a Mãe das Correntes (V · Além do Firmamento).;Épico;não
+conquista_260;Chefes;Queda de Zamara;Derrotar Zamara, o Devorador de Pontes (V · Além do Firmamento).;Épico;não
+conquista_261;Chefes;Queda de Belara;Derrotar Belara, a Chuva Negra (V · Além do Firmamento).;Épico;não
+conquista_262;Chefes;Queda de Rynara;Derrotar Rynara, o Relógio Parado (V · Além do Firmamento).;Épico;não
+conquista_263;Chefes;Queda de Ogara;Derrotar Ogara, a Voz do Fundo (V · Além do Firmamento).;Épico;não
+conquista_264;Chefes;Queda de Aelara;Derrotar Aelara, o Mapa Vivo (V · Além do Firmamento).;Épico;não
+conquista_265;Chefes;Queda de Nixara;Derrotar Nixara, a Fome Antiga (V · Além do Firmamento).;Épico;não
+conquista_266;Chefes;Queda de Corara;Derrotar Corara, o Rei Sem Coroa (V · Além do Firmamento).;Épico;não
+conquista_267;Chefes;Queda de Talara;Derrotar Talara, a Boca do Céu (V · Além do Firmamento).;Épico;não
+conquista_268;Chefes;Queda de Yrgara;Derrotar Yrgara, o Espelho Fundo (V · Além do Firmamento).;Épico;não
+conquista_269;Chefes;Queda de Molara;Derrotar Molara, a Maré de Vidro (V · Além do Firmamento).;Épico;não
+conquista_270;Chefes;Queda de Fenara;Derrotar Fenara, o Último Farol (V · Além do Firmamento).;Épico;não
+conquista_271;Chefes;Queda de Sarara;Derrotar Sarara, a Coroa de Ossos (V · Além do Firmamento).;Épico;não
+conquista_272;Chefes;Queda de Ossara;Derrotar Ossara, o Jardim de Ferro (V · Além do Firmamento).;Épico;não
+conquista_273;Chefes;Queda de Vexum;Derrotar Vexum, a Serpe de Sal (V · Além do Firmamento).;Épico;não
+conquista_274;Chefes;Queda de Morum;Derrotar Morum, o Mar de Cinzas (V · Além do Firmamento).;Épico;não
+conquista_275;Chefes;Queda de Karum;Derrotar Karum, a Filha do Eco (VI · Fim de Tudo).;Lendário;não
+conquista_276;Chefes;Queda de Sylum;Derrotar Sylum, o Trono Torto (VI · Fim de Tudo).;Lendário;não
+conquista_277;Chefes;Queda de Thorum;Derrotar Thorum, a Primeira Noite (VI · Fim de Tudo).;Lendário;não
+conquista_278;Chefes;Queda de Zamum;Derrotar Zamum, o Sino Partido (VI · Fim de Tudo).;Lendário;não
+conquista_279;Chefes;Queda de Belum;Derrotar Belum, a Mãe das Correntes (VI · Fim de Tudo).;Lendário;não
+conquista_280;Chefes;Queda de Rynum;Derrotar Rynum, o Devorador de Pontes (VI · Fim de Tudo).;Lendário;não
+conquista_281;Chefes;Queda de Ogum;Derrotar Ogum, a Chuva Negra (VI · Fim de Tudo).;Lendário;não
+conquista_282;Chefes;Queda de Aelum;Derrotar Aelum, o Relógio Parado (VI · Fim de Tudo).;Lendário;não
+conquista_283;Chefes;Queda de Nixum;Derrotar Nixum, a Voz do Fundo (VI · Fim de Tudo).;Lendário;não
+conquista_284;Chefes;Queda de Corum;Derrotar Corum, o Mapa Vivo (VI · Fim de Tudo).;Lendário;não
+conquista_285;Chefes;Queda de Talum;Derrotar Talum, a Fome Antiga (VI · Fim de Tudo).;Lendário;não
+conquista_286;Chefes;Queda de Yrgum;Derrotar Yrgum, o Rei Sem Coroa (VI · Fim de Tudo).;Lendário;não
+conquista_287;Chefes;Queda de Molum;Derrotar Molum, a Boca do Céu (VI · Fim de Tudo).;Lendário;não
+conquista_288;Chefes;Queda de Fenum;Derrotar Fenum, o Espelho Fundo (VI · Fim de Tudo).;Lendário;não
+conquista_289;Chefes;Queda de Sarum;Derrotar Sarum, a Maré de Vidro (VI · Fim de Tudo).;Lendário;não
+conquista_290;Chefes;Queda de Ossum;Derrotar Ossum, o Último Farol (VI · Fim de Tudo).;Lendário;não
+conquista_291;Chefes;Queda de Vexessa;Derrotar Vexessa, a Coroa de Ossos (VI · Fim de Tudo).;Lendário;não
+conquista_292;Chefes;Queda de Moressa;Derrotar Moressa, o Jardim de Ferro (VI · Fim de Tudo).;Lendário;não
+conquista_293;Chefes;Queda de Karessa;Derrotar Karessa, a Serpe de Sal (VI · Fim de Tudo).;Lendário;não
+conquista_294;Chefes;Queda de Apoteose;Derrotar Apoteose (VI · Fim de Tudo).;Lendário;não
+conquista_295;Progressão;Primeiros Passos I;Ter 1 chicotes diferentes.;Comum;não
+conquista_296;Progressão;Colecionador I;Ter 3 chicotes diferentes.;Comum;não
+conquista_297;Progressão;Arsenal Crescente I;Ter 5 chicotes diferentes.;Comum;não
+conquista_298;Progressão;Primeiros Passos II;Ter 10 chicotes diferentes.;Comum;não
+conquista_299;Progressão;Colecionador II;Ter 20 chicotes diferentes.;Raro;não
+conquista_300;Progressão;Arsenal Crescente II;Ter 40 chicotes diferentes.;Raro;não
+conquista_301;Progressão;Primeiros Passos III;Ter 80 chicotes diferentes.;Raro;não
+conquista_302;Progressão;Colecionador III;Ter 120 chicotes diferentes.;Raro;não
+conquista_303;Progressão;Arsenal Crescente III;Ter 160 chicotes diferentes.;Épico;não
+conquista_304;Progressão;Primeiros Passos IV;Ter 200 chicotes diferentes.;Lendário;não
+conquista_305;Progressão;Escada de Tiers I;Possuir um chicote do Tier 2.;Comum;não
+conquista_306;Progressão;Escada de Tiers II;Possuir um chicote do Tier 3.;Comum;não
+conquista_307;Progressão;Escada de Tiers III;Possuir um chicote do Tier 4.;Raro;não
+conquista_308;Progressão;Escada de Tiers IV;Possuir um chicote do Tier 5.;Raro;não
+conquista_309;Progressão;Escada de Tiers V;Possuir um chicote do Tier 6.;Lendário;não
+conquista_310;Progressão;Tempo de Aventura I;Jogar por 10 minutos.;Comum;não
+conquista_311;Progressão;Tempo de Aventura II;Jogar por 30 minutos.;Comum;não
+conquista_312;Progressão;Tempo de Aventura III;Jogar por 60 minutos.;Raro;não
+conquista_313;Progressão;Tempo de Aventura IV;Jogar por 180 minutos.;Raro;não
+conquista_314;Progressão;Tempo de Aventura V;Jogar por 600 minutos.;Lendário;não
+conquista_315;Progressão;Caçador de Chefes I;Derrotar 1 chefes diferentes.;Comum;não
+conquista_316;Progressão;Caçador de Chefes II;Derrotar 4 chefes diferentes.;Comum;não
+conquista_317;Progressão;Caçador de Chefes III;Derrotar 12 chefes diferentes.;Raro;não
+conquista_318;Progressão;Caçador de Chefes IV;Derrotar 42 chefes diferentes.;Raro;não
+conquista_319;Progressão;Caçador de Chefes V;Derrotar 94 chefes diferentes.;Lendário;não
+conquista_320;Combate;Exterminador I;Derrotar 10 inimigos.;Comum;não
+conquista_321;Combate;Exterminador II;Derrotar 50 inimigos.;Comum;não
+conquista_322;Combate;Exterminador III;Derrotar 200 inimigos.;Raro;não
+conquista_323;Combate;Exterminador IV;Derrotar 1000 inimigos.;Raro;não
+conquista_324;Combate;Exterminador V;Derrotar 5000 inimigos.;Lendário;não
+conquista_325;Combate;Estalo Perfeito I;Acertar 1 estalos (último 10% da corda).;Comum;não
+conquista_326;Combate;Estalo Perfeito II;Acertar 25 estalos (último 10% da corda).;Comum;não
+conquista_327;Combate;Estalo Perfeito III;Acertar 100 estalos (último 10% da corda).;Raro;não
+conquista_328;Combate;Estalo Perfeito IV;Acertar 500 estalos (último 10% da corda).;Raro;não
+conquista_329;Combate;Estalo Perfeito V;Acertar 2000 estalos (último 10% da corda).;Lendário;não
+conquista_330;Combate;Na Pontinha I;Acertar 10 golpes na ponta da corda.;Comum;não
+conquista_331;Combate;Na Pontinha II;Acertar 100 golpes na ponta da corda.;Comum;não
+conquista_332;Combate;Na Pontinha III;Acertar 500 golpes na ponta da corda.;Raro;não
+conquista_333;Combate;Fila Indiana I;Acertar 1 golpes em 3 ou mais inimigos.;Comum;não
+conquista_334;Combate;Fila Indiana II;Acertar 20 golpes em 3 ou mais inimigos.;Comum;não
+conquista_335;Combate;Fila Indiana III;Acertar 100 golpes em 3 ou mais inimigos.;Raro;não
+conquista_336;Combate;Peão do Destino I;Acertar 5 inimigos com o giro de 360°.;Comum;não
+conquista_337;Combate;Peão do Destino II;Acertar 50 inimigos com o giro de 360°.;Comum;não
+conquista_338;Combate;Peão do Destino III;Acertar 250 inimigos com o giro de 360°.;Raro;não
+conquista_339;Combate;Dano Monumental I;Causar 1000 de dano total.;Comum;não
+conquista_340;Combate;Dano Monumental II;Causar 10000 de dano total.;Comum;não
+conquista_341;Combate;Dano Monumental III;Causar 100000 de dano total.;Raro;não
+conquista_342;Combate;Dano Monumental IV;Causar 1000000 de dano total.;Lendário;não
+conquista_343;Combate;Mão Dupla I;Golpear 1 vezes com o segundo chicote do par.;Comum;não
+conquista_344;Combate;Mão Dupla II;Golpear 100 vezes com o segundo chicote do par.;Raro;não
+conquista_345;Mineração e construção;Picareta Cansada I;Minerar 10 blocos.;Comum;não
+conquista_346;Mineração e construção;Picareta Cansada II;Minerar 100 blocos.;Comum;não
+conquista_347;Mineração e construção;Picareta Cansada III;Minerar 1000 blocos.;Raro;não
+conquista_348;Mineração e construção;Picareta Cansada IV;Minerar 5000 blocos.;Raro;não
+conquista_349;Mineração e construção;Picareta Cansada V;Minerar 20000 blocos.;Lendário;não
+conquista_350;Mineração e construção;Arquiteto I;Colocar 10 blocos.;Comum;não
+conquista_351;Mineração e construção;Arquiteto II;Colocar 100 blocos.;Comum;não
+conquista_352;Mineração e construção;Arquiteto III;Colocar 1000 blocos.;Raro;não
+conquista_353;Mineração e construção;Arquiteto IV;Colocar 5000 blocos.;Lendário;não
+conquista_354;Mineração e construção;Fundo do Poço I;Descer até 50 blocos de profundidade.;Comum;não
+conquista_355;Mineração e construção;Fundo do Poço II;Descer até 150 blocos de profundidade.;Comum;não
+conquista_356;Mineração e construção;Fundo do Poço III;Descer até 300 blocos de profundidade.;Raro;não
+conquista_357;Mineração e construção;Fundo do Poço IV;Descer até 440 blocos de profundidade.;Lendário;não
+conquista_358;Mineração e construção;Caçador de Veios I;Minerar 5 minérios.;Comum;não
+conquista_359;Mineração e construção;Caçador de Veios II;Minerar 50 minérios.;Comum;não
+conquista_360;Mineração e construção;Caçador de Veios III;Minerar 250 minérios.;Raro;não
+conquista_361;Mineração e construção;Caçador de Veios IV;Minerar 1000 minérios.;Lendário;não
+conquista_362;Mineração e construção;Oficina Quente I;Criar 1 itens.;Comum;não
+conquista_363;Mineração e construção;Oficina Quente II;Criar 25 itens.;Comum;não
+conquista_364;Mineração e construção;Oficina Quente III;Criar 100 itens.;Raro;não
+conquista_365;Equipamento;Guarda-Roupa I;Ter 1 armaduras diferentes.;Comum;não
+conquista_366;Equipamento;Guarda-Roupa II;Ter 5 armaduras diferentes.;Comum;não
+conquista_367;Equipamento;Guarda-Roupa III;Ter 15 armaduras diferentes.;Raro;não
+conquista_368;Equipamento;Guarda-Roupa IV;Ter 30 armaduras diferentes.;Raro;não
+conquista_369;Equipamento;Guarda-Roupa V;Ter 50 armaduras diferentes.;Lendário;não
+conquista_370;Equipamento;Bijuteria Fina I;Ter 1 acessórios diferentes.;Comum;não
+conquista_371;Equipamento;Bijuteria Fina II;Ter 5 acessórios diferentes.;Comum;não
+conquista_372;Equipamento;Bijuteria Fina III;Ter 15 acessórios diferentes.;Raro;não
+conquista_373;Equipamento;Bijuteria Fina IV;Ter 30 acessórios diferentes.;Raro;não
+conquista_374;Equipamento;Bijuteria Fina V;Ter 50 acessórios diferentes.;Lendário;não
+conquista_375;Equipamento;Kit de Mineração I;Ter 1 picaretas diferentes.;Comum;não
+conquista_376;Equipamento;Kit de Mineração II;Ter 3 picaretas diferentes.;Comum;não
+conquista_377;Equipamento;Kit de Mineração III;Ter 5 picaretas diferentes.;Raro;não
+conquista_378;Equipamento;Conjunto Incompleto I;Usar conjunto de 2 peças da mesma família.;Comum;não
+conquista_379;Equipamento;Conjunto Incompleto II;Usar conjunto de 4 peças da mesma família.;Raro;não
+conquista_380;Equipamento;Duas Mãos I;Equipar um par de chicotes (Tier 5 ou maior).;Comum;não
+conquista_381;Equipamento;Duas Mãos II;Equipar um par de chicotes (Tier 7 ou maior).;Comum;não
+conquista_382;Equipamento;Duas Mãos III;Equipar um par de chicotes (Tier 10 ou maior).;Raro;não
+conquista_383;Equipamento;Fundidor I;Fundir 1 barras.;Comum;não
+conquista_384;Equipamento;Fundidor II;Fundir 50 barras.;Raro;não
+conquista_385;Exploração;Turista I;Visitar 2 biomas.;Comum;não
+conquista_386;Exploração;Turista II;Visitar 4 biomas.;Comum;não
+conquista_387;Exploração;Turista III;Visitar 6 biomas.;Raro;não
+conquista_388;Exploração;Cartógrafo I;Revelar 10% do mapa.;Comum;não
+conquista_389;Exploração;Cartógrafo II;Revelar 30% do mapa.;Comum;não
+conquista_390;Exploração;Cartógrafo III;Revelar 60% do mapa.;Raro;não
+conquista_391;Exploração;Cartógrafo IV;Revelar 90% do mapa.;Lendário;não
+conquista_392;Exploração;Viaduto Humano I;Usar o gancho 1 vezes.;Comum;não
+conquista_393;Exploração;Viaduto Humano II;Usar o gancho 50 vezes.;Comum;não
+conquista_394;Exploração;Viaduto Humano III;Usar o gancho 300 vezes.;Raro;não
+conquista_395;Exploração;Estrada Longa I;Andar 500 blocos.;Comum;não
+conquista_396;Exploração;Estrada Longa II;Andar 5000 blocos.;Comum;não
+conquista_397;Exploração;Estrada Longa III;Andar 50000 blocos.;Raro;não
+conquista_398;Exploração;Estrada Longa IV;Andar 200000 blocos.;Lendário;não
+conquista_399;Exploração;Primeira Ponte Sem Blocos;Atravessar 1 vãos só com o gancho.;Comum;não
+conquista_400;Economia e NPCs;Bolso Cheio I;Ganhar 100 moedas no total.;Comum;não
+conquista_401;Economia e NPCs;Bolso Cheio II;Ganhar 1000 moedas no total.;Comum;não
+conquista_402;Economia e NPCs;Bolso Cheio III;Ganhar 10000 moedas no total.;Raro;não
+conquista_403;Economia e NPCs;Bolso Cheio IV;Ganhar 100000 moedas no total.;Lendário;não
+conquista_404;Economia e NPCs;Bom Vizinho I;Conversar 1 vezes com NPCs.;Comum;não
+conquista_405;Economia e NPCs;Bom Vizinho II;Conversar 10 vezes com NPCs.;Comum;não
+conquista_406;Economia e NPCs;Bom Vizinho III;Conversar 50 vezes com NPCs.;Raro;não
+conquista_407;Economia e NPCs;Cliente Fiel I;Comprar 1 itens na vila.;Comum;não
+conquista_408;Economia e NPCs;Cliente Fiel II;Comprar 10 itens na vila.;Raro;não
+conquista_409;Economia e NPCs;Goles Rápidos;Beber 10 poções.;Comum;não
+conquista_410;Mundos;Fundador I;Criar 1 mundos.;Comum;não
+conquista_411;Mundos;Fundador II;Criar 3 mundos.;Raro;não
+conquista_412;Mundos;Semeador I;Salvar o jogo 1 vezes.;Comum;não
+conquista_413;Mundos;Semeador II;Salvar o jogo 20 vezes.;Raro;não
+conquista_414;Mundos;Passaporte I;Exportar 1 mapas.;Comum;não
+conquista_415;Mundos;Passaporte II;Exportar 5 mapas.;Raro;não
+conquista_416;Mundos;Imigrante I;Importar 1 mapas.;Comum;não
+conquista_417;Mundos;Imigrante II;Importar 3 mapas.;Raro;não
+conquista_418;Segredos;(secreta);(???);Lendário;sim
+conquista_419;Segredos;(secreta);(???);Lendário;sim
+conquista_420;Segredos;(secreta);(???);Lendário;sim
+conquista_421;Segredos;(secreta);(???);Lendário;sim
+conquista_422;Segredos;(secreta);(???);Lendário;sim
+conquista_423;Segredos;(secreta);(???);Lendário;sim
+conquista_424;Segredos;(secreta);(???);Lendário;sim
+conquista_425;Segredos;(secreta);(???);Lendário;sim
+conquista_426;Segredos;(secreta);(???);Lendário;sim
+conquista_427;Segredos;(secreta);(???);Lendário;sim
+conquista_428;Segredos;(secreta);(???);Lendário;sim
+conquista_429;Segredos;(secreta);(???);Lendário;sim

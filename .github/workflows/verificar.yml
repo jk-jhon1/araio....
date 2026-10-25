@@ -1,0 +1,16 @@
+name: Verificar tabelas e build
+on: [push, pull_request]
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Gerar o index.html único
+        run: node build.js
+      - name: Critérios de aceite (200/94/433/628/429)
+        run: node tools/verificar.js
+      - name: Arquivos gerados em dia
+        run: git diff --exit-code -- index.html docs/dados-jogo.json docs/chicotes.csv docs/chefes.csv docs/conquistas.csv

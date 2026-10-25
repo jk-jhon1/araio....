@@ -1,0 +1,11 @@
+{
+  "name": "chicotes-do-destino",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chicotes do Destino — sandbox 2D pixel-art em um único index.html (200 chicotes, 94 chefes, 429 conquistas). Sem dependências.",
+  "scripts": {
+    "build": "node build.js",
+    "start": "node serve.js",
+    "test": "node tools/verificar.js"
+  }
+}

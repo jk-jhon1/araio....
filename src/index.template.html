@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="Chicotes do Destino — sandbox 2D pixel-art com 200 chicotes, 94 chefes e 429 conquistas. Mundo 1400×480, mineração, construção e criação. Um único arquivo, sem dependências.">
+<title>Chicotes do Destino</title>
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body>
+<noscript><p style="padding:20px;text-align:center">Chicotes do Destino precisa de JavaScript para estalar. Ative e recarregue a página.</p></noscript>
+
+<!-- ================= MENU PRINCIPAL (só texto) ================= -->
+<section id="tela-menu" class="tela ativa">
+  <div class="menu-caixa">
+    <h1 class="menu-titulo">Chicotes do Destino</h1>
+    <p class="menu-sub">Se funciona com espada, funciona com chicote — mas o chicote alcança mais longe,
+      acerta mais de um inimigo e não corta: ele <strong>estala</strong>.</p>
+    <nav class="menu-botoes">
+      <button id="btn-continuar" class="btn btn-primario btn-grande" style="display:none">▶ Continuar</button>
+      <button id="btn-jogar" class="btn btn-grande">Jogar</button>
+      <button id="btn-mundos" class="btn btn-grande">Meus Mundos</button>
+      <button id="btn-menu-arsenal" class="btn btn-grande">Arsenal — 200 chicotes</button>
+      <button id="btn-menu-conquistas" class="btn btn-grande">Conquistas <span id="menu-conquistas-resumo">0 / 429 (0%)</span></button>
+      <button id="btn-menu-som" class="btn btn-grande">Som</button>
+      <button id="btn-menu-sobre" class="btn btn-grande">Sobre o jogo</button>
+      <button id="btn-menu-sair" class="btn btn-grande">Sair</button>
+    </nav>
+    <p class="menu-rodape">
+      <span class="numero-destaque">200</span> chicotes em 10 tiers ·
+      <span class="numero-destaque">94</span> chefes ·
+      <span class="numero-destaque">433</span> receitas ·
+      <span class="numero-destaque">628</span> itens ·
+      <span class="numero-destaque">429</span> conquistas<br>
+      Mundo de 1400×480 blocos · mineração, construção e criação · teclado, mouse, controle e toque ·
+      um único arquivo, funciona offline.
+    </p>
+  </div>
+</section>
+
+<!-- ================= MEUS MUNDOS ================= -->
+<section id="tela-mundos" class="tela">
+  <div class="mundos-grid">
+    <div class="painel-azul">
+      <div class="painel-cab">
+        <h2>Meus Mundos</h2>
+        <button id="btn-voltar-menu" class="btn">← Menu</button>
+      </div>
+      <div id="lista-mundos"></div>
+    </div>
+    <div class="painel-azul">
+      <h2>Criar novo mundo</h2>
+      <label for="novo-nome">Nome do mundo</label>
+      <input type="text" id="novo-nome" maxlength="40" placeholder="Meu Mundo">
+      <label for="novo-seed">Semente (dois mundos nunca são iguais)</label>
+      <input type="text" id="novo-seed" maxlength="30" placeholder="ex.: destino-2026">
+      <button id="btn-seed-aleatoria" class="btn" type="button">🎲 Semente aleatória</button>
+      <button id="btn-criar-mundo" class="btn btn-primario btn-grande" style="width:100%;margin-top:10px" type="button">Criar e jogar</button>
+      <hr style="border-color:#1e4e78">
+      <label for="importar-arquivo">Importar mapa (.json exportado)</label>
+      <input type="file" id="importar-arquivo" accept=".json,application/json">
+      <p class="dica">O save fica no navegador (IndexedDB) com salvamento automático a cada 30 segundos.
+        Exportar gera um arquivo com todo o mundo de 1400×480.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOGO ================= -->
+<section id="tela-jogo" class="tela">
+  <div class="hud-topo">
+    <div class="hud-esq">
+      <div id="hud-vida"></div>
+      <div class="hud-linha" id="hud-chicote"></div>
+      <div class="hud-linha" id="hud-ambiente"></div>
+      <div class="hud-linha" id="hud-buffs"></div>
+    </div>
+    <div class="hud-dir">
+      <div class="hud-linha"><span id="hud-moedas"></span> · <span id="hud-chefes"></span> · <span id="hud-conquistas"></span></div>
+      <div class="hud-botoes">
+        <button class="btn" data-abrir="arsenal">Arsenal (V)</button>
+        <button class="btn" data-abrir="inventario">Inventário (I)</button>
+        <button class="btn" data-abrir="criacao">Criação (C)</button>
+        <button class="btn" data-abrir="chefes">Chefes (B)</button>
+        <button class="btn" data-abrir="conquistas">Conquistas</button>
+        <button class="btn" data-abrir="mapa">Mapa (M)</button>
+        <button id="btn-hud-pausa" class="btn">⏸ Pausa</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="hud-chefe" style="display:none">
+    <div id="hud-chefe-nome"></div>
+    <div class="chefe-trilha"><div id="hud-chefe-vida"></div></div>
+    <div id="hud-chefe-num" class="hud-linha"></div>
+  </div>
+
+  <div id="canvas-moldura">
+    <canvas id="canvas" width="960" height="540"></canvas>
+    <div id="balao-npc"></div>
+    <div id="dica-interacao"></div>
+  </div>
+
+  <div id="indicador-carga-caixa"><div id="indicador-carga"></div><div id="indicador-carga-texto"></div></div>
+  <div id="hud-barra"></div>
+  <div id="hud-selecionado"></div>
+
+  <div id="controles-toque">
+    <div class="toque-grupo">
+      <button class="btn-toque" data-toque="esq">◀</button>
+      <button class="btn-toque" data-toque="dir">▶</button>
+      <button class="btn-toque" data-toque="pulo">▲</button>
+    </div>
+    <div class="toque-grupo">
+      <button class="btn-toque" data-toque="usar">E</button>
+      <button class="btn-toque" data-toque="inv">🎒</button>
+      <button class="btn-toque" data-toque="gancho">🪝</button>
+      <button class="btn-toque acao" data-toque="acao">💥</button>
+    </div>
+  </div>
+  <p class="dica" style="text-align:center;max-width:1100px">A/D andar · Espaço pular · clique = golpe (segurar 0,45s e soltar = giro 360°) · botão direito ou F = gancho · E falar · 1–0 trocar item · <span style="white-space:nowrap">Ctrl+S</span> salvar. No toque, arraste no canvas para mirar.</p>
+</section>
+
+<!-- ================= PAINÉIS ================= -->
+<div id="fundo-paineis">
+
+  <section id="painel-pausa" class="painel painel-azul">
+    <div class="painel-cab"><h2>Pausa</h2><button class="btn" data-fechar>✕</button></div>
+    <div class="pausa-botoes">
+      <button id="btn-pausa-continuar" class="btn btn-primario btn-grande">Retomar</button>
+      <button class="btn btn-grande" data-abrir="conquistas">Conquistas</button>
+      <button class="btn btn-grande" data-abrir="som">Som</button>
+      <button class="btn btn-grande" data-abrir="controles">Controles</button>
+      <button id="btn-pausa-salvar" class="btn btn-grande">Salvar</button>
+      <button id="btn-pausa-exportar" class="btn btn-grande">Exportar mapa</button>
+      <button id="btn-pausa-menu" class="btn btn-grande">Salvar e sair para o menu</button>
+    </div>
+  </section>
+
+  <section id="painel-arsenal" class="painel painel-azul">
+    <div class="painel-cab"><h2>Arsenal — 200 chicotes</h2><button class="btn" data-fechar>✕</button></div>
+    <p class="dica" id="arsenal-resumo"></p>
+    <div class="filtros">
+      <div><label for="arsenal-tier">Tier</label>
+        <select id="arsenal-tier"><option value="0">Todos os tiers</option><option value="1">T1 · Básico</option><option value="2">T2 · Pré-Chefes</option><option value="3">T3 · Mid-Game</option><option value="4">T4 · Hardmode Inicial</option><option value="5">T5 · Hardmode Avançado (par!)</option><option value="6">T6 · End-Game Mítico</option><option value="7">T7 · Forja Estelar</option><option value="8">T8 · Relicário do Vazio</option><option value="9">T9 · Eco Primordial (chefes)</option><option value="10">T10 · Origem (chefes)</option></select></div>
+      <div><label for="arsenal-busca">Buscar nome</label><input type="text" id="arsenal-busca" placeholder="corrente, eco, Apoteose…"></div>
+      <label class="check"><input type="checkbox" id="arsenal-so-meus"> Só os meus</label>
+    </div>
+    <div id="arsenal-lista" class="lista-grade"></div>
+    <div id="arsenal-detalhe" class="detalhe-caixa"><span class="dica">Clique num chicote para ver a ficha: dano no cabo/meio/ponta/estalo, alcance, alvos e receita.</span></div>
+  </section>
+
+  <section id="painel-conquistas" class="painel painel-azul">
+    <div class="painel-cab"><h2>Conquistas <span id="conq-resumo">0 / 429</span></h2><button class="btn" data-fechar>✕</button></div>
+    <div class="conq-progresso"><div id="conq-barra"></div></div>
+    <div id="conq-abas"></div>
+    <div id="conq-lista" class="lista-rolavel"></div>
+    <p class="dica">Os 12 segredos aparecem como ??? até serem desbloqueados — nem nome, nem descrição, nem raridade.</p>
+  </section>
+
+  <section id="painel-criacao" class="painel painel-azul">
+    <div class="painel-cab"><h2>Criação — 433 receitas</h2><button class="btn" data-fechar>✕</button></div>
+    <p class="dica" id="criacao-resumo"></p>
+    <div class="filtros">
+      <div><label for="criacao-categoria">Categoria</label>
+        <select id="criacao-categoria"><option value="todas">Todas</option><option>Chicotes</option><option>Armaduras</option><option>Fundição</option><option>Picaretas</option><option>Acessórios</option><option>Poções</option><option>Construção</option><option>Invocação</option></select></div>
+      <div><label for="criacao-busca">Buscar</label><input type="text" id="criacao-busca" placeholder="nome do item…"></div>
+      <label class="check"><input type="checkbox" id="criacao-so-posso"> Só o que eu posso criar</label>
+    </div>
+    <div id="criacao-lista" class="lista-rolavel"></div>
+    <p class="dica">Tiers 1–6: forjáveis com minérios do mundo. Tiers 7–8: forjáveis com minérios de chefe. Tiers 9–10: não têm receita — caem dos 40 chefes que os guardam.</p>
+  </section>
+
+  <section id="painel-inventario" class="painel painel-azul">
+    <div class="painel-cab"><h2>Inventário e equipamentos</h2><button class="btn" data-fechar>✕</button></div>
+    <div id="inv-equipamentos" class="eq-grid"></div>
+    <p class="dica" id="inv-atributos"></p>
+    <div class="filtros">
+      <div><label for="inv-filtro">Tipo</label>
+        <select id="inv-filtro"><option value="todos">Todos</option><option value="chicote">Chicotes</option><option value="armadura">Armaduras</option><option value="acessorio">Acessórios</option><option value="picareta">Picaretas</option><option value="minerio">Minérios</option><option value="barra">Barras</option><option value="bloco">Blocos</option><option value="pocao">Poções</option><option value="material">Materiais</option><option value="invocador">Selos</option><option value="especial">Especiais</option></select></div>
+      <div><label for="inv-busca">Buscar</label><input type="text" id="inv-busca" placeholder="nome…"></div>
+    </div>
+    <div id="inv-lista" class="lista-grade"></div>
+    <div id="inv-detalhe" class="detalhe-caixa"><span class="dica">Clique num item para equipar, usar ou colocar na barra (espaços 1–0, roda do mouse troca).</span></div>
+  </section>
+
+  <section id="painel-chefes" class="painel painel-azul">
+    <div class="painel-cab"><h2>Chefes — 94</h2><button class="btn" data-fechar>✕</button></div>
+    <p class="dica" id="chefes-resumo"></p>
+    <p class="dica">Invocar gasta 1 selo (crie em Criação → Invocação ou compre com a Rita na vila). Os 20 chefes do Ato V guardam os chicotes Tier 9; os 20 do Ato VI, o Tier 10. Cada chefe tem uma mecânica inédita.</p>
+    <div id="chefes-lista" class="lista-rolavel"></div>
+  </section>
+
+  <section id="painel-mapa" class="painel painel-azul">
+    <div class="painel-cab"><h2>Mapa — 1400 × 480</h2><button class="btn" data-fechar>✕</button></div>
+    <canvas id="mapa-canvas" width="700" height="240"></canvas>
+    <p class="dica" id="mapa-info"></p>
+  </section>
+
+  <section id="painel-som" class="painel painel-azul">
+    <div class="painel-cab"><h2>Som e acessibilidade</h2><button class="btn" data-fechar>✕</button></div>
+    <label class="check"><input type="checkbox" id="som-ativo"> Som ligado</label>
+    <label class="check"><input type="checkbox" id="som-musica"> Música em loop (gerada no jogo)</label>
+    <label for="som-volume">Volume</label>
+    <input type="range" id="som-volume" min="0" max="100" value="70">
+    <label for="cfg-tremor">Tremor de câmera no estalo</label>
+    <select id="cfg-tremor"><option value="1">Normal</option><option value="0.5">Reduzido</option><option value="0">Desligado</option></select>
+    <label class="check"><input type="checkbox" id="cfg-faisca"> Faísca do estalo</label>
+    <label class="check"><input type="checkbox" id="cfg-fonte"> Fonte maior (balões e textos)</label>
+    <label class="check"><input type="checkbox" id="cfg-toque"> Controles de toque (aparecem em telas de toque)</label>
+    <p class="dica">Nenhuma opção de acessibilidade muda a jogabilidade.</p>
+  </section>
+
+  <section id="painel-controles" class="painel painel-azul">
+    <div class="painel-cab"><h2>Controles</h2><button class="btn" data-fechar>✕</button></div>
+    <table class="tabela-controles">
+      <tr><th>Ação</th><th>Teclado/mouse</th><th>Controle</th><th>Toque</th></tr>
+      <tr><td>Andar</td><td><kbd>A</kbd>/<kbd>D</kbd> ou setas</td><td>Direcional esquerdo</td><td>◀ ▶</td></tr>
+      <tr><td>Pular</td><td><kbd>Espaço</kbd> ou <kbd>W</kbd></td><td>A</td><td>▲</td></tr>
+      <tr><td>Golpe do chicote</td><td>Clique (soltar rápido)</td><td>X / RT</td><td>💥 (mira por arrasto no canvas)</td></tr>
+      <tr><td>Giro de 360°</td><td>Segurar o clique 0,45s e soltar</td><td>Segurar X e soltar</td><td>Segurar 💥 e soltar</td></tr>
+      <tr><td>Gancho</td><td>Botão direito ou <kbd>F</kbd> (pular solta)</td><td>B</td><td>🪝</td></tr>
+      <tr><td>Minerar / construir</td><td>Selecione a picareta/bloco (1–0) e segure o clique</td><td>X com mira no direcional direito</td><td>💥 com arrasto</td></tr>
+      <tr><td>Interagir (NPCs)</td><td><kbd>E</kbd></td><td>Y</td><td>E</td></tr>
+      <tr><td>Trocar item</td><td><kbd>1</kbd>–<kbd>0</kbd>, roda do mouse, <kbd>Q</kbd> alterna chicote/picareta</td><td>LB / RB</td><td>Toque no espaço da barra</td></tr>
+      <tr><td>Painéis</td><td><kbd>I</kbd> inventário · <kbd>C</kbd> criação · <kbd>V</kbd> arsenal · <kbd>B</kbd> chefes · <kbd>M</kbd> mapa</td><td>Menu (botões na tela)</td><td>Botões na tela</td></tr>
+      <tr><td>Pausa / salvar</td><td><kbd>Esc</kbd> ou <kbd>P</kbd> · <kbd>Ctrl</kbd>+<kbd>S</kbd> salva</td><td>Start</td><td>⏸</td></tr>
+    </table>
+  </section>
+
+  <section id="painel-loja" class="painel painel-azul">
+    <div class="painel-cab"><h2>Loja da Rita — <span id="loja-moedas"></span></h2><button class="btn" data-fechar>✕</button></div>
+    <div id="loja-lista" class="lista-rolavel"></div>
+    <button id="btn-vender-materiais" class="btn" style="margin-top:10px">Vender materiais excedentes (guarda 5 de cada)</button>
+  </section>
+
+  <section id="painel-sobre" class="painel painel-azul">
+    <div class="painel-cab"><h2>Sobre Chicotes do Destino</h2><button class="btn" data-fechar>✕</button></div>
+    <p>O jogo de 200 espadas recriado com uma única troca estrutural: a arma. Onde havia 200 espadas, há
+      <strong>200 chicotes</strong>. O resto — mundo, mineração, construção, criação, chefes, conquistas e interface — continua.</p>
+    <h3>As 7 regras de ouro do chicote</h3>
+    <ol style="line-height:1.6">
+      <li><b>Alcance 2–3×</b> — corda de 3,3 (T1) a 4,2 (T10) blocos; teste na borda de um penhasco.</li>
+      <li><b>Dano até a ponta</b> — 0,6× no cabo → 1,6× na ponta; os últimos 10% são o <b>estalo</b>: 2,56×, sem sorteio.</li>
+      <li><b>Vários em linha</b> — 3 alvos no T1 até 8 no T10, −15% por alvo extra.</li>
+      <li><b>Giro de 360°</b> — segure 0,45s e solte: 1,2s de dano radial com empurrão.</li>
+      <li><b>Gancho</b> — a ponta agarra blocos (um tipo novo por tier), puxa você e recolhe drops.</li>
+      <li><b>Par a partir do T5</b> — o segundo chicote golpeia alternado com 70% do dano.</li>
+      <li><b>Corda viva</b> — cadeia de 12 a 24 segmentos que ondula e encosta no cenário, com som, faísca e tremor curto no estalo.</li>
+    </ol>
+    <h3>Os números fechados</h3>
+    <p class="dica">200 chicotes (10 tiers × 20) · 94 chefes (4 clássicos + 90 em 6 atos: 8+14+16+12+20+20) · 40 chicotes T9–T10 guardados por 40 chefes ·
+      429 conquistas (200 de arma + 94 de chefe + 12 segredos + 123 nas outras 7 categorias) · 628 itens · 433 receitas · 50 minérios · 50 barras ·
+      50 armaduras · 50 acessórios · 5 picaretas. A <b>Apoteose</b>, o chicote nº 200, só existe com 94/94 chefes derrotados.</p>
+    <h3>Técnica</h3>
+    <p class="dica">Um único <code>index.html</code> gerado por <code>node build.js</code> a partir de <code>src/*.js</code> concatenados — sem dependências, roda offline.
+      Canvas 2D em baixa resolução com pixels quadrados mirando 60 fps. Mundo 1400×480 de 16px com semente única. Save em IndexedDB, perfil e conquistas em
+      LocalStorage, exportar/importar mapa em arquivo. Áudio e música sintetizados em WebAudio. Teclado/mouse, gamepad com mira analógica e toque com mira por arrasto.</p>
+  </section>
+</div>
+
+<div id="toasts"></div>
+<footer class="rodape">Chicotes do Destino — feito num único arquivo HTML. Abra o console para ver a validação das tabelas (200/94/433/628/429).</footer>
+
+<script>
+/*__SCRIPTS__*/
+</script>
+</body>
+</html>

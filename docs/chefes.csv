@@ -1,0 +1,95 @@
+﻿indice;nome;ato;vida;danoContato;fases;mecanica;chicoteGuardado;acessorioExclusivo
+1;Rei Slime;Clássicos;677;9;1;Saltos esmagadores e slimes invocados;;acessorio_1
+2;Olho Colossal;Clássicos;968;10;1;Investidas aéreas e olhos menores;;acessorio_2
+3;Guardião do Abismo;Clássicos;1293;11;2;Lava, tentáculos e duas fases;;acessorio_3
+4;Colosso Estelar;Clássicos;1652;12;3;Meteoros, feixes e três fases;;acessorio_4
+5;Thorora, a Fome Antiga;I · Despertar;2045;14;1;onda de choque de fogo com padrão espelhado;;acessorio_5
+6;Zamora, o Rei Sem Coroa;I · Despertar;2472;15;1;tiros rastreadores de fogo com domínio de arena;;acessorio_6
+7;Belora, a Boca do Céu;I · Despertar;2933;16;1;armadilha de espinhos de fogo com telegrafia dupla;;acessorio_7
+8;Rynora, o Espelho Fundo;I · Despertar;3428;17;2;feixe em leque de fogo com padrão espelhado;;acessorio_8
+9;Ogora, a Maré de Vidro;I · Despertar;3957;18;1;marcas que detonam de fogo com domínio de arena;;acessorio_9
+10;Aelora, o Último Farol;I · Despertar;4520;19;3;fendas que engolem de fogo com telegrafia dupla;;acessorio_10
+11;Nixora, a Coroa de Ossos;I · Despertar;5117;20;1;clones de eco de fogo com padrão espelhado;;acessorio_11
+12;Corora, o Jardim de Ferro;I · Despertar;5748;21;2;rajada radial de gelo com domínio de arena;;acessorio_12
+13;Talora, a Serpe de Sal;II · Pós-Olho;6413;22;1;espiral de projéteis de gelo com telegrafia dupla;;acessorio_13
+14;Yrgora, o Mar de Cinzas;II · Pós-Olho;7112;23;1;laser telegrafado de gelo com padrão espelhado;;acessorio_14
+15;Molora, a Filha do Eco;II · Pós-Olho;7845;25;1;chuva de meteoros de gelo com domínio de arena;;acessorio_15
+16;Fenora, o Trono Torto;II · Pós-Olho;8612;26;2;invoca lacaios de gelo com telegrafia dupla;;acessorio_16
+17;Sarora, a Primeira Noite;II · Pós-Olho;9413;27;1;onda de choque de gelo com padrão espelhado;;acessorio_17
+18;Ossora, o Sino Partido;II · Pós-Olho;10248;28;1;tiros rastreadores de gelo com domínio de arena;;acessorio_18
+19;Vexath, a Mãe das Correntes;II · Pós-Olho;11117;29;1;armadilha de espinhos de gelo com telegrafia dupla;;acessorio_19
+20;Morath, o Devorador de Pontes;II · Pós-Olho;12020;30;3;feixe em leque de gelo com padrão espelhado;;acessorio_20
+21;Karath, a Chuva Negra;II · Pós-Olho;12957;31;1;marcas que detonam de gelo com domínio de arena;;acessorio_21
+22;Sylath, o Relógio Parado;II · Pós-Olho;13928;32;1;fendas que engolem de gelo com telegrafia dupla;;acessorio_22
+23;Thorath, a Voz do Fundo;II · Pós-Olho;14933;33;1;clones de eco de gelo com padrão espelhado;;acessorio_23
+24;Zamath, o Mapa Vivo;II · Pós-Olho;15972;34;2;rajada radial de raio com domínio de arena;;acessorio_24
+25;Belath, a Fome Antiga;II · Pós-Olho;17045;36;1;espiral de projéteis de raio com telegrafia dupla;;acessorio_25
+26;Rynath, o Rei Sem Coroa;II · Pós-Olho;18152;37;1;laser telegrafado de raio com padrão espelhado;;acessorio_26
+27;Ogath, a Boca do Céu;III · Hardmode;19293;38;1;chuva de meteoros de raio com domínio de arena;;acessorio_27
+28;Aelath, o Espelho Fundo;III · Hardmode;20468;39;2;invoca lacaios de raio com telegrafia dupla;;acessorio_28
+29;Nixath, a Maré de Vidro;III · Hardmode;21677;40;1;onda de choque de raio com padrão espelhado;;acessorio_29
+30;Corath, o Último Farol;III · Hardmode;22920;41;3;tiros rastreadores de raio com domínio de arena;;acessorio_30
+31;Talath, a Coroa de Ossos;III · Hardmode;24197;42;1;armadilha de espinhos de raio com telegrafia dupla;;acessorio_31
+32;Yrgath, o Jardim de Ferro;III · Hardmode;25508;43;2;feixe em leque de raio com padrão espelhado;;acessorio_32
+33;Molath, a Serpe de Sal;III · Hardmode;26853;44;1;marcas que detonam de raio com domínio de arena;;acessorio_33
+34;Fenath, o Mar de Cinzas;III · Hardmode;28232;45;1;fendas que engolem de raio com telegrafia dupla;;acessorio_34
+35;Sarath, a Filha do Eco;III · Hardmode;29645;47;1;clones de eco de raio com padrão espelhado;;acessorio_35
+36;Ossath, o Trono Torto;III · Hardmode;31092;48;2;rajada radial de veneno com domínio de arena;;acessorio_36
+37;Vexion, a Primeira Noite;III · Hardmode;32573;49;1;espiral de projéteis de veneno com telegrafia dupla;;acessorio_37
+38;Morion, o Sino Partido;III · Hardmode;34088;50;1;laser telegrafado de veneno com padrão espelhado;;acessorio_38
+39;Karion, a Mãe das Correntes;III · Hardmode;35637;51;1;chuva de meteoros de veneno com domínio de arena;;acessorio_39
+40;Sylion, o Devorador de Pontes;III · Hardmode;37220;52;3;invoca lacaios de veneno com telegrafia dupla;;acessorio_40
+41;Thorion, a Chuva Negra;III · Hardmode;38837;53;1;onda de choque de veneno com padrão espelhado;;acessorio_41
+42;Zamion, o Relógio Parado;III · Hardmode;40488;54;1;tiros rastreadores de veneno com domínio de arena;;acessorio_42
+43;Belion, a Voz do Fundo;IV · Além do Colosso;42173;55;1;armadilha de espinhos de veneno com telegrafia dupla;;acessorio_43
+44;Rynion, o Mapa Vivo;IV · Além do Colosso;43892;56;2;feixe em leque de veneno com padrão espelhado;;acessorio_44
+45;Ogion, a Fome Antiga;IV · Além do Colosso;45645;58;1;marcas que detonam de veneno com domínio de arena;;acessorio_45
+46;Aelion, o Rei Sem Coroa;IV · Além do Colosso;47432;59;1;fendas que engolem de veneno com telegrafia dupla;;
+47;Nixion, a Boca do Céu;IV · Além do Colosso;49253;60;1;clones de eco de veneno com padrão espelhado;;
+48;Corion, o Espelho Fundo;IV · Além do Colosso;51108;61;2;rajada radial de vazio com domínio de arena;;
+49;Talion, a Maré de Vidro;IV · Além do Colosso;52997;62;1;espiral de projéteis de vazio com telegrafia dupla;;
+50;Yrgion, o Último Farol;IV · Além do Colosso;54920;63;3;laser telegrafado de vazio com padrão espelhado;;
+51;Molion, a Coroa de Ossos;IV · Além do Colosso;56877;64;1;chuva de meteoros de vazio com domínio de arena;;
+52;Fenion, o Jardim de Ferro;IV · Além do Colosso;58868;65;2;invoca lacaios de vazio com telegrafia dupla;;
+53;Sarion, a Serpe de Sal;IV · Além do Colosso;60893;66;1;onda de choque de vazio com padrão espelhado;;
+54;Ossion, o Mar de Cinzas;IV · Além do Colosso;62952;67;1;tiros rastreadores de vazio com domínio de arena;;
+55;Vexara, a Filha do Eco;V · Além do Firmamento;65045;69;1;armadilha de espinhos de vazio com telegrafia dupla;161;
+56;Morara, o Trono Torto;V · Além do Firmamento;67172;70;2;feixe em leque de vazio com padrão espelhado;162;
+57;Karara, a Primeira Noite;V · Além do Firmamento;69333;71;1;marcas que detonam de vazio com domínio de arena;163;
+58;Sylara, o Sino Partido;V · Além do Firmamento;71528;72;1;fendas que engolem de vazio com telegrafia dupla;164;
+59;Thorara, a Mãe das Correntes;V · Além do Firmamento;73757;73;1;clones de eco de vazio com padrão espelhado;165;
+60;Zamara, o Devorador de Pontes;V · Além do Firmamento;76020;74;3;rajada radial de luz com domínio de arena;166;
+61;Belara, a Chuva Negra;V · Além do Firmamento;78317;75;1;espiral de projéteis de luz com telegrafia dupla;167;
+62;Rynara, o Relógio Parado;V · Além do Firmamento;80648;76;1;laser telegrafado de luz com padrão espelhado;168;
+63;Ogara, a Voz do Fundo;V · Além do Firmamento;83013;77;1;chuva de meteoros de luz com domínio de arena;169;
+64;Aelara, o Mapa Vivo;V · Além do Firmamento;85412;78;2;invoca lacaios de luz com telegrafia dupla;170;
+65;Nixara, a Fome Antiga;V · Além do Firmamento;87845;80;1;onda de choque de luz com padrão espelhado;171;
+66;Corara, o Rei Sem Coroa;V · Além do Firmamento;90312;81;1;tiros rastreadores de luz com domínio de arena;172;
+67;Talara, a Boca do Céu;V · Além do Firmamento;92813;82;1;armadilha de espinhos de luz com telegrafia dupla;173;
+68;Yrgara, o Espelho Fundo;V · Além do Firmamento;95348;83;2;feixe em leque de luz com padrão espelhado;174;
+69;Molara, a Maré de Vidro;V · Além do Firmamento;97917;84;1;marcas que detonam de luz com domínio de arena;175;
+70;Fenara, o Último Farol;V · Além do Firmamento;100520;85;3;fendas que engolem de luz com telegrafia dupla;176;
+71;Sarara, a Coroa de Ossos;V · Além do Firmamento;103157;86;1;clones de eco de luz com padrão espelhado;177;
+72;Ossara, o Jardim de Ferro;V · Além do Firmamento;105828;87;2;rajada radial de osso com domínio de arena;178;
+73;Vexum, a Serpe de Sal;V · Além do Firmamento;108533;88;1;espiral de projéteis de osso com telegrafia dupla;179;
+74;Morum, o Mar de Cinzas;V · Além do Firmamento;111272;89;1;laser telegrafado de osso com padrão espelhado;180;
+75;Karum, a Filha do Eco;VI · Fim de Tudo;114045;91;1;chuva de meteoros de osso com domínio de arena;181;
+76;Sylum, o Trono Torto;VI · Fim de Tudo;116852;92;2;invoca lacaios de osso com telegrafia dupla;182;
+77;Thorum, a Primeira Noite;VI · Fim de Tudo;119693;93;1;onda de choque de osso com padrão espelhado;183;
+78;Zamum, o Sino Partido;VI · Fim de Tudo;122568;94;1;tiros rastreadores de osso com domínio de arena;184;
+79;Belum, a Mãe das Correntes;VI · Fim de Tudo;125477;95;1;armadilha de espinhos de osso com telegrafia dupla;185;
+80;Rynum, o Devorador de Pontes;VI · Fim de Tudo;128420;96;3;feixe em leque de osso com padrão espelhado;186;
+81;Ogum, a Chuva Negra;VI · Fim de Tudo;131397;97;1;marcas que detonam de osso com domínio de arena;187;
+82;Aelum, o Relógio Parado;VI · Fim de Tudo;134408;98;1;fendas que engolem de osso com telegrafia dupla;188;
+83;Nixum, a Voz do Fundo;VI · Fim de Tudo;137453;99;1;clones de eco de osso com padrão espelhado;189;
+84;Corum, o Mapa Vivo;VI · Fim de Tudo;140532;100;2;rajada radial de estrela com domínio de arena;190;
+85;Talum, a Fome Antiga;VI · Fim de Tudo;143645;102;1;espiral de projéteis de estrela com telegrafia dupla;191;
+86;Yrgum, o Rei Sem Coroa;VI · Fim de Tudo;146792;103;1;laser telegrafado de estrela com padrão espelhado;192;
+87;Molum, a Boca do Céu;VI · Fim de Tudo;149973;104;1;chuva de meteoros de estrela com domínio de arena;193;
+88;Fenum, o Espelho Fundo;VI · Fim de Tudo;153188;105;2;invoca lacaios de estrela com telegrafia dupla;194;
+89;Sarum, a Maré de Vidro;VI · Fim de Tudo;156437;106;1;onda de choque de estrela com padrão espelhado;195;
+90;Ossum, o Último Farol;VI · Fim de Tudo;159720;107;3;tiros rastreadores de estrela com domínio de arena;196;
+91;Vexessa, a Coroa de Ossos;VI · Fim de Tudo;163037;108;1;armadilha de espinhos de estrela com telegrafia dupla;197;
+92;Moressa, o Jardim de Ferro;VI · Fim de Tudo;166388;109;2;feixe em leque de estrela com padrão espelhado;198;
+93;Karessa, a Serpe de Sal;VI · Fim de Tudo;169773;110;1;marcas que detonam de estrela com domínio de arena;199;
+94;Apoteose;VI · Fim de Tudo;173192;111;4;Quatro fases, tela cheia e big bang;200;
