@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Chicotes Do Destino — Sandbox 2D Platformer</title>
+<link rel="icon" type="image/png" href="__ICON__">
+<style>
+/*__STYLE__*/
+</style>
+</head>
+<body>
+<div id="app">
+  <canvas id="view" tabindex="0"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="hp-wrap">
+      <div id="hp-label"><span id="hp-txt"></span></div>
+      <canvas id="hearts" width="10" height="10"></canvas>
+      <div id="hp-bar"><div id="hp-fill"></div><div id="hp-shield"></div></div>
+      <div id="stat-row"></div>
+      <div id="buffs"></div>
+    </div>
+    <div id="top-right"><canvas id="mini" width="180" height="110"></canvas><div id="clock"></div></div>
+    <div id="bossbar" class="hidden"><div id="boss-name"></div><div id="boss-wrap"><div id="boss-fill"></div></div></div>
+    <div id="toasts"></div>
+    <div id="savebadge" class="hidden">Mundo salvo</div>
+    <div id="dbg" class="hidden"></div>
+    <div id="item-name"></div>
+    <div id="hotbar"></div>
+    <div id="deadmsg" class="hidden"><div>VOCÊ FOI MOGADO</div><small id="dead-sub"></small></div>
+  </div>
+
+  <div id="touch" class="hidden">
+    <div id="tj-base"><div id="tj-knob"></div></div>
+    <div id="tb-top">
+      <button id="tb-inv" class="tb" title="Inventário">&#127890;</button>
+      <button id="tb-ars" class="tb" title="Arsenal">&#9876;</button>
+      <button id="tb-map" class="tb" title="Mapa">&#128506;</button>
+      <button id="tb-heal" class="tb" title="Cura rápida">&#10084;</button>
+      <button id="tb-zi" class="tb" title="Aproximar">+</button>
+      <button id="tb-zo" class="tb" title="Afastar">&minus;</button>
+      <button id="tb-pause" class="tb" title="Pausar">&#10074;&#10074;</button>
+    </div>
+    <button id="tb-close" class="tb" title="Fechar">&#10005;</button>
+    <button id="tb-use" class="tb mid" title="Interagir (baú, porta, NPC)">&#9995;</button>
+    <button id="tb-hook" class="tb" title="Gancho do chicote (fisga blocos e drops)">&#9875;</button>
+    <button id="tb-jump" class="tb big" title="Pular">&#9650;</button>
+    <button id="tb-atk" class="tb huge" title="Usar item (segure e arraste para mirar)">+</button>
+  </div>
+
+  <div id="panel-inv" class="panel hidden">
+    <div id="inv-left">
+      <h3><span>Criação</span><span id="station-info" style="text-transform:none;letter-spacing:0"></span></h3>
+      <input id="craft-search" placeholder="Buscar receita..." autocomplete="off">
+      <div class="tabs" id="craft-tabs"></div>
+      <div id="craft-list"></div>
+    </div>
+    <div id="inv-right">
+      <h3><span>Inventário</span><span id="coins"></span></h3>
+      <div id="inv-grid"></div>
+      <div id="equip-row"></div>
+      <div id="chest-wrap"><h3 style="margin-top:6px"><span>Baú</span></h3><div id="chest-grid"></div></div>
+      <div style="font-size:11px;color:var(--mut);line-height:1.5">Clique: pegar/colocar · Botão direito: metade/um · Shift+clique: mover rápido/equipar · Solte na lixeira para destruir</div>
+    </div>
+  </div>
+
+  <div id="panel-arsenal" class="panel hidden">
+    <h3><span id="ars-title">Arsenal</span><span><button class="btn" id="ars-close">Fechar (B)</button></span></h3>
+    <div class="tabs" id="ars-tabs"></div>
+    <div id="ars-body"></div>
+  </div>
+
+  <div id="npc-panel" class="panel hidden"></div>
+  <div id="tooltip" class="hidden"></div>
+  <div id="cursor-item" class="hidden"></div>
+
+  <div id="menu" class="screen">
+    <canvas id="menu-bg"></canvas>
+    <button id="music-toggle" title="Música e sons" aria-label="Ligar/desligar música e sons">&#9835;</button>
+    <div id="logo">CHICOTES DO DESTINO<small>SANDBOX 2D PLATFORMER</small></div>
+    <div id="tiers-strip"></div>
+    <button class="menu-btn hidden" id="btn-load">Continuar<small id="btn-load-sub"></small></button>
+    <button class="menu-btn" id="btn-adv">Nova Aventura<small>Mine, crie, derrote chefes e forje os 200 chicotes · cada mundo é único</small></button>
+    <button class="menu-btn" id="btn-cre">Modo Criativo<small>Arsenal completo: todos os chicotes, inimigos e bonecos de treino</small></button>
+    <button class="menu-btn" id="btn-worlds">Meus Mundos<small id="btn-worlds-sub">Nenhum mundo salvo ainda</small></button>
+    <button class="menu-btn" id="btn-ach">Conquistas<small id="btn-ach-sub">0 / 0 desbloqueadas</small></button>
+    <button class="menu-btn" id="btn-help">Controles e Guia</button>
+    <div id="pad-hint">Aceita controle (gamepad): aperte um botão para ativar</div>
+  </div>
+
+  <div id="worlds" class="screen hidden">
+    <div class="box" id="worlds-box">
+      <h2>Meus Mundos <span id="worlds-count"></span></h2>
+      <div id="device-box">
+        <div id="dev-line"><b>Este aparelho:</b> <span id="dev-label"></span> · código <code id="dev-code"></code></div>
+        <div id="dev-prot" class="warn"></div>
+        <div id="dev-btns">
+          <button class="btn hidden" id="btn-protect">Proteger agora</button>
+          <button class="btn" id="btn-import">Importar mapa</button>
+          <input type="file" id="world-import" class="hidden" multiple accept=".json,.chicotes,.txt,application/json,text/plain">
+        </div>
+      </div>
+      <div id="worlds-msg" class="hidden"></div>
+      <div id="worlds-list"></div>
+      <div id="worlds-foot"><span id="worlds-info"></span><button class="menu-btn" id="worlds-back">Voltar</button></div>
+    </div>
+  </div>
+
+  <div id="loading" class="screen hidden">
+    <div id="load-title">Gerando mundo sobreviva e crie...</div>
+    <div id="load-bar"><div id="load-fill"></div></div>
+    <div id="load-msg"></div>
+    <div id="load-tip"></div>
+  </div>
+
+  <div id="pause" class="screen hidden">
+    <div class="box" style="text-align:center;min-width:300px">
+      <h2>Pausado</h2>
+      <div id="pause-world"></div>
+      <button class="menu-btn" id="p-resume" style="font-size:15px">Continuar</button>
+      <button class="menu-btn" id="p-ach" style="font-size:15px">Conquistas</button>
+      <button class="menu-btn" id="p-help" style="font-size:15px">Controles e Guia</button>
+      <button class="menu-btn" id="p-sound" style="font-size:15px">Som: ligado</button>
+      <button class="menu-btn" id="p-touch" style="font-size:15px">Controles de toque: automático</button>
+      <button class="menu-btn" id="p-shake" style="font-size:15px">Tremida de câmera: ligada</button>
+      <button class="menu-btn" id="p-save" style="font-size:15px">Salvar mundo</button>
+      <button class="menu-btn" id="p-menu" style="font-size:15px">Salvar e voltar ao menu</button>
+    </div>
+  </div>
+
+  <div id="help" class="screen hidden"><div class="box" id="help-box"></div></div>
+  <div id="ach" class="screen hidden"><div class="box" id="ach-box"></div></div>
+</div>
+<script>
+/*__SCRIPT__*/
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# capturas de tela temporárias dos testes
+dev/*.png
+# dependências (npm install)
+node_modules/
+.DS_Store
